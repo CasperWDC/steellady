@@ -1,18 +1,18 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 import Home from './pages/Home';
+import Header from "./components/Header.tsx";
+import Footer from "./components/Footer.tsx";
 
 const App = () => {
     return (
         <Router>
-            <nav>
-                <Link to="/">Home</Link>
-                <Link to="/about">About</Link>
-            </nav>
+            <Header />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<Home />} />
             </Routes>
+            <Footer />
         </Router>
     );
 };

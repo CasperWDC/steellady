@@ -1,0 +1,27 @@
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  &_container {
+    max-width: 1360px;
+    margin: 0 auto;
+  }
+
+  &_topRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 15px;
+    border-bottom: 1px solid #4E555F;
+  }
+
+  &_adress {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+
+}

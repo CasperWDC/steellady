@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import Home_banner from "../components/Home_banner.tsx";
 
 function Home() {
 
@@ -10,7 +11,7 @@ function Home() {
                 <meta property="og:title" content="Home Page" />
                 <meta property="og:description" content="Welcome to the home page" />
             </Helmet>
-            <h1>Vite + React</h1>
+            <Home_banner />
         </>
     )
 }

@@ -1,8 +1,18 @@
+@use '../assets/scss/_variables';
+
 .header {
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 999999;
+  transition: 0.3s ease;
+
+  &.scroll {
+    top: -107px;
+    backdrop-filter: blur(14px);
+    background: rgba(22, 29, 39, 0.5);
+  }
 
   &_container {
     max-width: 1360px;
@@ -13,14 +23,86 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 15px;
+    padding: 20px 15px;
     border-bottom: 1px solid #4E555F;
+
+    img {
+      max-height: 70px;
+    }
   }
 
   &_adress {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 130%;
+    letter-spacing: 0.02em;
+    text-align: right;
+    color: #d1b06b;
+  }
+
+  &_navigation {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 15px;
+    border-bottom: 1px solid #4E555F;
+
+    nav {
+      display: flex;
+      gap: 54px;
+      align-items: center;
+
+      a {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 160%;
+        letter-spacing: 0.02em;
+        color: #fff;
+        transition: 0.3s ease;
+
+        &:hover {
+          color: variables.$textColorAcсent;
+        }
+
+        &.active {
+          color: variables.$textColorAcсent;
+        }
+      }
+    }
+  }
+
+  &_contacts {
+    display: flex;
+    gap: 35px;
+  }
+
+  &_contact {
+    &_item {
+      color: variables.$textColor;
+      font-size: 16px;
+      line-height: 120%;
+      letter-spacing: 0.02em;
+      display: flex;
+      flex-direction: column;
+      padding-left: 60px;
+
+      &.phon {
+        background: url("../assets/img/icons/phone.svg") no-repeat center left;
+        background-size: contain;
+      }
+      &.mail {
+        background: url("../assets/img/icons/mail.svg") no-repeat center left;
+        background-size: contain;
+      }
+    }
+    &_title {
+      color: variables.$textColorAcсent;
+      font-size: 16px;
+      line-height: 160%;
+      letter-spacing: 0.02em;
+    }
   }
 
 

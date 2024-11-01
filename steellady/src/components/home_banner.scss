@@ -1,0 +1,47 @@
+@use '../assets/scss/_variables';
+
+.home_banner {
+  background: url("../assets/img/home_bg.jpg") no-repeat bottom;
+  background-size: cover;
+  padding-top: 270px;
+
+  &_container {
+    background: url("../assets/img/steel.png") no-repeat bottom right;
+    background-size: contain;
+  }
+  &_content {
+    max-width: 49%;
+    padding-bottom: 50px;
+    position: relative;
+
+    h1 {
+      font-weight: 400;
+      font-size: 55px;
+      line-height: 100%;
+      letter-spacing: 0.01em;
+      font-family: variables.$secondFont;
+      margin: 0 0 36px;
+      position: relative;
+      padding-top: 70px;
+
+      &:before {
+        content: '';
+        width: 95px;
+        height: 44px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: url("../assets/img/head_item.svg") no-repeat center;
+        background-size: contain;
+      }
+    }
+
+    .subtitle {
+      font-size: 25px;
+      line-height: 128%;
+      letter-spacing: 0.02em;
+      color: variables.$textColorAcсent;
+      margin-bottom: 50px;
+    }
+  }
+}

@@ -9,9 +9,13 @@
   transition: 0.3s ease;
 
   &.scroll {
-    top: -107px;
+    top: -110px;
     backdrop-filter: blur(14px);
     background: rgba(22, 29, 39, 0.5);
+
+    .header_navigation .logo {
+      width: 164px;
+    }
   }
 
   &_container {
@@ -48,6 +52,17 @@
     justify-content: space-between;
     padding: 20px 15px;
     border-bottom: 1px solid #4E555F;
+
+    .logo {
+      width: 0;
+      overflow: hidden;
+      transition: 0.3s ease;
+
+      img {
+        max-height: 45px;
+        width: max-content;
+      }
+    }
 
     nav {
       display: flex;
@@ -92,11 +107,13 @@
         background: url("../assets/img/icons/phone.svg") no-repeat center left;
         background-size: contain;
       }
+
       &.mail {
         background: url("../assets/img/icons/mail.svg") no-repeat center left;
         background-size: contain;
       }
     }
+
     &_title {
       color: variables.$textColorAcсent;
       font-size: 16px;

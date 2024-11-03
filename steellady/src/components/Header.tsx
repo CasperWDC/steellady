@@ -25,7 +25,10 @@ function Header() {
         <div className={`header ${isScrolled ? 'scroll' : ''}`}>
             <div className="header_container">
                 <div className="header_topRow">
-                    <img src={Logo} alt=""/>
+                    <a href="/">
+                        <img src={Logo} alt=""/>
+                    </a>
+
                     <a href='#' className="header_adress">
                         <span>г. Донецк, пр-т Мира, 15.</span>
                         <span>БЦ «Centaur Plaza 1», 9 этаж, офис №92</span>
@@ -38,6 +41,9 @@ function Header() {
                         <Link to="/#service">Услуги</Link>
                         <Link to="/#contacts">Контакты</Link>
                     </nav>
+                    <a href='/' className="logo">
+                        <img src={Logo} alt=""/>
+                    </a>
                     <div className="header_contacts">
                         <a href='tel:+79495012220' className="header_contact_item phon">
                             <span className='header_contact_title'>Мобильный</span>

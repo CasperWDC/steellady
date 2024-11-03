@@ -12,6 +12,8 @@ html {
   font-weight: 400;
   font-style: normal;
   color: variables.$textColor;
+  font-size: 16px;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -118,5 +120,48 @@ textarea {
     backdrop-filter: blur(14px);
     background: rgba(22, 29, 39, 0.5);
     color: variables.$textColor;
+  }
+}
+
+.mb-0 {
+  margin: 0 !important;
+}
+section {
+  margin-top: 84px;
+}
+p {
+  margin: 0;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 45px;
+  line-height: 130%;
+  letter-spacing: 0.01em;
+  font-family: variables.$secondFont;
+  margin: 0 0 44px;
+  position: relative;
+  padding-bottom: 62px;
+
+  &:before {
+    content: '';
+    width: 95px;
+    height: 44px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: url(../../assets/img/head_item.svg) no-repeat center;
+    background-size: contain;
+  }
+
+}
+
+ul {
+  margin-top: 0;
+  padding-left: 23px;
+  margin-bottom: 1rem;
+
+  li {
+
   }
 }

@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import Home_banner from "../components/Home_banner.tsx";
+import About from "../components/About.tsx";
 
 function Home() {
 
@@ -12,6 +13,7 @@ function Home() {
                 <meta property="og:description" content="Welcome to the home page" />
             </Helmet>
             <Home_banner />
+            <About />
         </>
     )
 }

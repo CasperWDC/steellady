@@ -1,0 +1,28 @@
+@use '../assets/scss/_variables';
+
+.services {
+  h2 {
+    text-align: center;
+  }
+
+  .border_top {
+    border-top: 1px solid #4e555f;
+    padding-top: 70px;
+  }
+
+  &_container {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &_item {
+    background: #1f2732;
+    padding: 25px 50px;
+    transition: 0.2s ease;
+
+    &:hover {
+      background: #2e3947;
+    }
+  }
+}

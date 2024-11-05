@@ -1,6 +1,8 @@
 @use '../assets/scss/_variables';
 
 .services {
+  padding-bottom: 84px;
+
   h2 {
     text-align: center;
   }
@@ -25,4 +27,25 @@
       background: #2e3947;
     }
   }
+
+  &_title {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #4e555f;
+
+    img {
+      max-width: 40px;
+    }
+  }
+  &_content {
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    letter-spacing: 0.03em;
+    color: variables.$contentColor;
+  }
+
 }

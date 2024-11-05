@@ -1,0 +1,72 @@
+@use '../assets/scss/_variables';
+
+.why {
+  padding: 84px 0;
+  background: #fff;
+
+  h2 {
+    color: variables.$textColorDark;
+  }
+
+  &_container {
+    display: flex;
+    gap: 30px;
+  }
+
+  &_item {
+    background: #fbfbfb;
+    width: 100%;
+    color: variables.$textColorDark;
+    padding: 20px 30px;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+  }
+
+  &_counter {
+    border: 2px solid #d1b06b;
+    width: 110px;
+    height: 110px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 130%;
+    letter-spacing: 0.01em;
+  }
+
+  &_content {
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 117%;
+    letter-spacing: 0.01em;
+    font-family: variables.$secondFont;
+  }
+
+  &_item_img {
+    background: url("../assets/img/why-bg.jpg") no-repeat center;
+    background-size: cover;
+    color: variables.$textColor;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: center;
+
+    p {
+      font-weight: 400;
+      font-size: 30px;
+      line-height: 130%;
+      letter-spacing: 0.01em;
+      font-family: variables.$mainFont;
+    }
+    .why_content {
+      font-family: variables.$mainFont;
+      font-size: 20px;
+      max-width: 163px;
+    }
+
+  }
+}

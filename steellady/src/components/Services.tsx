@@ -70,7 +70,7 @@ function Header() {
                 <div className="services_container">
                     {services.map((service, index) => {
                         return (
-                            <a href={service.link} className="services_item">
+                            <a key={index} href={service.link} className="services_item">
                                 <div className="services_title">
                                     <img src={service.img} alt=""/>
                                     <p>{service.title}</p>

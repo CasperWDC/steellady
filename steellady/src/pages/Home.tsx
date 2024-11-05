@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import Home_banner from "../components/Home_banner.tsx";
 import About from "../components/About.tsx";
 import Services from "../components/Services.tsx";
+import Why from "../components/Why.tsx";
 
 function Home() {
 
@@ -16,6 +17,7 @@ function Home() {
             <Home_banner />
             <About />
             <Services />
+            <Why />
         </>
     )
 }

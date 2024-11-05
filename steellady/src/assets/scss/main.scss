@@ -165,6 +165,13 @@ h2 {
     }
   }
 
+  &.psuedo_center {
+    text-align: center;
+    &:before {
+      left: calc(50% - 47px);
+    }
+  }
+
 
 }
 

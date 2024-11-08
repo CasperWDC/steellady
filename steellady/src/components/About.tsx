@@ -1,25 +1,27 @@
 import "./about.scss";
-import { useInView } from "react-intersection-observer";
+
+import {useEffect} from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function Header() {
 
-    const { ref, inView } = useInView({
-        /* Optional options */
-        threshold: 0,
-    });
+    useEffect(() => {
+        AOS.init();
+    }, [])
 
     return (
-        <section ref={ref} className={`about ${inView ? 'view' : ''}`}>
+        <section  className={`about`}>
             <div className="container about_container">
                 <div className="about_col_img">
-                    <div>
-                        <span></span>
+                    <div data-aos="fade-right">
+
                     </div>
-                    <div>
-                        <span></span>
+                    <div data-aos="fade-right">
+
                     </div>
-                    <div>
-                        <span></span>
+                    <div data-aos="fade-right">
+
                     </div>
                 </div>
             <div className="about_col">

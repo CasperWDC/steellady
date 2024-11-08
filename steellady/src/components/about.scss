@@ -38,47 +38,26 @@
         height: 100%;
         position: absolute;
         top: 0;
-        left: -200%;
         transition: 0.3s ease;
       }
 
       &:nth-child(1) {
-        span {
           background: url('../assets/img/about1.jpg') no-repeat center;
           background-size: cover;
-        }
       }
 
       &:nth-child(2) {
-        span {
           background: url('../assets/img/about2.jpg') no-repeat center;
           background-size: cover;
-        }
       }
 
       &:nth-child(3) {
-        span {
           background: url('../assets/img/about3.jpg') no-repeat center;
           background-size: cover;
-        }
       }
     }
   }
 
-  &.view {
-    .about_col_img div:nth-child(1) span {
-      animation: imgShow forwards 0.3s;
-      animation-delay: 0.2s;
-    }
-    .about_col_img div:nth-child(2) span {
-      animation: imgShow forwards 0.3s;
-      animation-delay: 0.3s;
-    }
-    .about_col_img div:nth-child(3) span {
-      animation: imgShow forwards 0.3s;
-      animation-delay: 0.4s;
-    }
-  }
 }
 
 @keyframes imgShow {

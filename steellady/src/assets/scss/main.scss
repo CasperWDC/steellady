@@ -184,3 +184,29 @@ ul {
 
   }
 }
+
+.splide__pagination {
+  padding-top: 50px;
+  gap: 10px;
+
+  .presentation {
+    line-height: 0;
+    height: max-content;
+  }
+  .splide__pagination__page {
+    display: block;
+    width: 15px;
+    height: 10px;
+    border-radius: 1px;
+    border: 1px solid #fff;
+    background: #fff;
+    box-sizing: border-box;
+    opacity: 0.6;
+    transition: 0.2s ease;
+    cursor: pointer;
+
+    &.is-active {
+      opacity: 1;
+    }
+  }
+}

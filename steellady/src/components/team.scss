@@ -1,0 +1,50 @@
+@use '../assets/scss/_variables';
+
+.team {
+  background: #fff;
+  padding-top: 84px;
+  padding-bottom: 84px;
+
+  h2 {
+    color: variables.$textColorDark;
+  }
+
+  &_photo {
+    height: 400px;
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+  }
+
+  &_content {
+    text-align: center;
+    color: variables.$textColorDark;
+    padding-top: 20px;
+  }
+
+  &_name {
+    font-family: variables.$secondFont;
+    font-size: 30px;
+    line-height: 130%;
+    letter-spacing: 0.01em;
+    text-align: center;
+  }
+
+  &_status {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 178%;
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: variables.$textColorAcсent;
+  }
+
+  .splide__pagination {
+
+    .splide__pagination__page {
+      border: 1px solid variables.$mainBG;
+      background: variables.$mainBG;
+    }
+  }
+
+}

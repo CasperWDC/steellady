@@ -3,6 +3,8 @@ import Home_banner from "../components/Home_banner.tsx";
 import About from "../components/About.tsx";
 import Services from "../components/Services.tsx";
 import Why from "../components/Why.tsx";
+import Reviews from "../components/Reviews.tsx";
+import Team from "../components/Team.tsx";
 
 function Home() {
 
@@ -18,6 +20,8 @@ function Home() {
             <About />
             <Services />
             <Why />
+            <Reviews />
+            <Team />
         </>
     )
 }

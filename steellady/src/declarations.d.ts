@@ -1,3 +1,7 @@
+declare module '@splidejs/react-splide';
+declare module '@splidejs/react-splide/css/core';
+declare module '@emailjs/browser';
+declare module 'aos';
 declare module '*.png' {
     const value: string;
     export default value;
@@ -21,4 +25,9 @@ declare module '*.svg' {
 declare module '*.gif' {
     const value: string;
     export default value;
+}
+
+declare module '*.scss' {
+    const classes: { [key: string]: string};
+    export default classes;
 }

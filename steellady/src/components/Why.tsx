@@ -9,16 +9,25 @@ function Why() {
         threshold: 0.6, // 50% видимости
     });
 
-    const animateValue = (element, start, end, duration) => {
-        let startTimestamp = null;
-        const step = (timestamp) => {
+    const animateValue = (
+        element: HTMLElement | null,
+        start: number,
+        end: number,
+        duration: number
+    ) => {
+        if (!element) return;
+
+        let startTimestamp: number | null = null;
+
+        const step = (timestamp: number) => {
             if (!startTimestamp) startTimestamp = timestamp;
             const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-            element.innerText = Math.floor(progress * (end - start) + start);
+            element.innerText = Math.floor(progress * (end - start) + start).toString();
             if (progress < 1) {
                 window.requestAnimationFrame(step);
             }
         };
+
         window.requestAnimationFrame(step);
     };
 
@@ -27,18 +36,25 @@ function Why() {
             const clientsElement = document.getElementById('clients');
             const winElement = document.getElementById('win');
 
-            animateValue(clientsElement,
-                parseInt(clientsElement.getAttribute('data-from')),
-                parseInt(clientsElement.getAttribute('data-to')),
-                500); // 2 секунды
+            if (clientsElement) {
+                animateValue(
+                    clientsElement,
+                    parseInt(clientsElement.getAttribute('data-from') || '0', 10),
+                    parseInt(clientsElement.getAttribute('data-to') || '0', 10),
+                    500
+                );
+            }
 
-            animateValue(winElement,
-                parseInt(winElement.getAttribute('data-from')),
-                parseInt(winElement.getAttribute('data-to')),
-                500);
+            if (winElement) {
+                animateValue(
+                    winElement,
+                    parseInt(winElement.getAttribute('data-from') || '0', 10),
+                    parseInt(winElement.getAttribute('data-to') || '0', 10),
+                    500
+                );
+            }
         }
     }, [inView]);
-
 
     return (
         <section className='why' >

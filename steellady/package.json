@@ -10,9 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/react-native": "^4.2.2",
     "@splidejs/react-splide": "^0.7.12",
     "aos": "^3.0.0-beta.6",
     "axios": "^1.7.7",
+    "cleave.js": "^1.6.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-helmet-async": "^2.0.5",
@@ -21,6 +23,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
+    "@types/aos": "^3.0.7",
+    "@types/css-modules": "^1.0.5",
     "@types/node": "^22.8.2",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",

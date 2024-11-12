@@ -2,6 +2,7 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/core';
 import "./reviews.scss";
 
+
 import Rev1 from '../assets/img/revs/rev1.jpg';
 
 function Reviews() {

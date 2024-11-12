@@ -1,0 +1,140 @@
+@use '../assets/scss/_variables';
+
+.contactUs {
+
+  &_container {
+    display: flex;
+    gap: 25px;
+    justify-content: space-between;
+  }
+
+  &_info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  &_item {
+    padding-left: 90px;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 136%;
+    letter-spacing: 0.02em;
+    color: variables.$contentColor;
+    position: relative;
+
+    &.schedule {
+      background: url("../assets/img/icons/schedule.png") no-repeat left;
+      background-size: 50px;
+    }
+
+    &.tel {
+      background: url("../assets/img/icons/tel.png") no-repeat left;
+      background-size: 50px;
+
+      a {
+        &:first-child {
+          margin-bottom: 10px;
+        }
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &.mail {
+      background: url("../assets/img/icons/mail.png") no-repeat left;
+      background-size: 50px;
+
+      & .mail_copy {
+        position: relative;
+        cursor: pointer;
+
+        .copyed {
+          bottom: -27px;
+          left: 0;
+          position: absolute;
+          background: #fff;
+          color: #000;
+          font-size: 14px;
+          padding: 0 10px;
+          border-radius: 20px;
+          display: inline-block;
+          z-index: -5;
+          opacity: 0;
+          transition: 0.2s ease;
+
+          &.active {
+            z-index: 5;
+            opacity: 1;
+          }
+        }
+
+      }
+    }
+
+    &.adress {
+      background: url("../assets/img/icons/adress.png") no-repeat left;
+      background-size: 50px;
+
+      a {
+        font-weight: 700;
+        color: variables.$textColorAcсent;
+      }
+    }
+
+    a {
+      display: block;
+    }
+
+  }
+
+  &_form {
+
+
+    .contact_us {
+      background: variables.$textColor;
+      display: flex;
+      flex-direction: column;
+      padding: 40px 80px;
+      gap: 20px;
+    }
+
+    label {
+      color: variables.$textColorDark;
+
+      &.personal_data {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        input {
+          width: 15px;
+          height: 15px;
+        }
+
+        span {
+          font-size: 14px;
+        }
+      }
+    }
+    input, textarea {
+      width: 100%;
+      padding: 5px 10px;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 120%;
+      letter-spacing: 0.02em;
+      color: variables.$textColorDark;
+      border: 1px solid variables.$textColorDark;
+      outline: none;
+      resize: none;
+
+      &:hover, &:active, &:focus, &:focus-visible {
+        border-color: variables.$textColorAcсent;
+      }
+    }
+  }
+
+}

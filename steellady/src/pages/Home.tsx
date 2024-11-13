@@ -6,6 +6,7 @@ import Why from "../components/Why.tsx";
 import Reviews from "../components/Reviews.tsx";
 import Team from "../components/Team.tsx";
 import ContactUs from "../components/ContactUs.tsx";
+import News from "../components/News.tsx";
 
 function Home() {
 
@@ -24,6 +25,7 @@ function Home() {
             <Reviews />
             <Team />
             <ContactUs />
+            <News />
         </>
     )
 }

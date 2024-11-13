@@ -26,6 +26,16 @@ function Team() {
             status: 'юрист по семейным делам',
             img: Team1,
         },
+        {
+            name: 'Brian Gomez',
+            status: 'юрист по семейным делам',
+            img: Team1,
+        },
+        {
+            name: 'Brian Gomez',
+            status: 'юрист по семейным делам',
+            img: Team1,
+        },
     ]
 
 
@@ -39,7 +49,7 @@ function Team() {
                                 type : 'slide',
                                 gap : '30px',
                                 arrows : false,
-                                perPage : 3,
+                                perPage : 4,
                             } }
                     >
 

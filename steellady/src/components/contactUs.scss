@@ -1,6 +1,10 @@
 @use '../assets/scss/_variables';
 
 .contactUs {
+  background: rgba(31, 39, 50, 0.85);
+  padding-top: 84px;
+  padding-bottom: 84px;
+  margin-top: 0;
 
   &_container {
     display: flex;
@@ -133,6 +137,20 @@
 
       &:hover, &:active, &:focus, &:focus-visible {
         border-color: variables.$textColorAcсent;
+      }
+    }
+
+    button {
+      background: variables.$textColorDark;
+      color: variables.$textColor;
+      border: none;
+      padding: 15px;
+      cursor: pointer;
+      transition: 0.2s ease;
+
+      &:hover {
+        background: variables.$textColorAcсent;
+        color: variables.$textColorDark;
       }
     }
   }

@@ -26,7 +26,6 @@ function ContactUs() {
     const [errors, setErrors] = useState<ErrorsState>({});
     const [successMessage, setSuccessMessage] = useState('');
 
-
     const patterns = {
         tel: {
             pattern: /^\+?[0-9\s-]{8,}$/,
@@ -110,19 +109,19 @@ function ContactUs() {
             loader.style.display = 'block';
 
             await emailjs.send(
-                'service_ocu3ghj',
-                'template_gehvvt3',
+                'service_oysd6so',
+                'template_vtpcpgo',
                 {
                     from_name: form.name,
                     to_name: 'nikisshlife@gmail.com',
-                    subject: 'New contact request',
+                    subject: 'Новая заявка с сайта Jurist-Stalnaya.ru',
                     message: `Имя:${form.name}\n Контакт: ${form.contact}\nСообщение: ${form.message}`
                 },
-                { publicKey: 'Sl71C1XEkewEcME1q' }
+                { publicKey: '8VMs9CNZgMrnhOttL' }
             );
 
             loader.style.display = 'none';
-            setSuccessMessage('Спасибо за запрос, я свяжусь с Вами!');
+            setSuccessMessage('Спасибо за запрос, мы свяжемся с Вами!');
             setForm({ name: "", contact: "", message: "" });
             setErrors({});
         } catch (error) {
@@ -204,10 +203,11 @@ function ContactUs() {
                                 <input type="checkbox" name="scales" defaultChecked/>
                                 <span>Я согласен на обработку персональных данных</span>
                             </label>
+
                             {Object.values(errors).some(error => error) && <p className="error_message">Заполните поля корректно</p>}
                             {successMessage && <p className="success_message">{successMessage}</p>}
 
-                            <button type='submit'>
+                            <button type='submit' disabled={successMessage ? true : false}>
                                 Заказать звонок
                                 <span className="loader"></span>
                             </button>

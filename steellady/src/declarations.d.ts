@@ -2,6 +2,7 @@ declare module '@splidejs/react-splide';
 declare module '@splidejs/react-splide/css/core';
 declare module '@emailjs/browser';
 declare module 'aos';
+declare module 'react-google-recaptcha-v3';
 declare module '*.png' {
     const value: string;
     export default value;

@@ -38,6 +38,11 @@
     display: flex;
     gap: 50px;
     justify-content: space-between;
+
+    @media (max-width: 991px) {
+      flex-direction: column;
+      gap: 30px;
+    }
   }
 
   &_title {
@@ -55,6 +60,13 @@
   nav {
     display: flex;
     flex-direction: column;
+
+    a {
+      transition: 0.2s ease;
+      &:hover {
+        color: variables.$textColorAcсent;
+      }
+    }
   }
 
  a, p {

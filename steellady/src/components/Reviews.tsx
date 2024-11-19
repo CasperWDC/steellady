@@ -1,4 +1,4 @@
-import { Splide, SplideSlide } from '@splidejs/react-splide';
+import {Splide, SplideSlide} from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/core';
 import "./reviews.scss";
 
@@ -47,24 +47,35 @@ function Reviews() {
 
 
     return (
-        <section className='reviews' >
+        <section className='reviews'>
             <div className="container">
                 <h2 className='psuedo_center'>Отзывы клиентов</h2>
                 <div className="reviews_container">
                     <Splide aria-label="Отзывы клиентов"
-                            options={ {
-                                type : 'slide',
-                                gap : '30px',
-                                arrows : false,
-                                perPage : 4,
-                            } }
+                            options={{
+                                type: 'slide',
+                                gap: '30px',
+                                arrows: false,
+                                perPage: 4,
+                                breakpoints: {
+                                    1200: {
+                                        perPage: 3,
+                                    },
+                                    991: {
+                                        perPage: 2,
+                                    },
+                                    767: {
+                                        perPage: 1,
+                                    }
+                                }
+                            }}
                     >
 
                         {reviews.map((review, index) => {
                             return (
                                 <SplideSlide className='review' key={index}>
                                     <div className="review_header">
-                                        <span style={{ background: `url(${review.img})` }}></span>
+                                        <span style={{background: `url(${review.img})`}}></span>
                                         <div className="review_title">
                                             <p className="review_name">{review.name}</p>
                                             <p className="review_status">{review.status}</p>

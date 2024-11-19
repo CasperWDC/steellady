@@ -14,11 +14,13 @@ html {
   color: variables.$textColor;
   font-size: 16px;
   scroll-behavior: smooth;
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
   background: variables.$mainBG;
+  box-sizing: border-box;
 }
 
 main {
@@ -40,6 +42,10 @@ a {
   background-color: transparent;
   color: inherit;
   text-decoration: none;
+}
+
+a,p,div,section {
+  box-sizing: border-box;
 }
 
 abbr[title] {
@@ -128,6 +134,10 @@ textarea {
 }
 section {
   margin-top: 84px;
+
+  @media (max-width: 767px) {
+    margin-top: 40px;
+  }
 }
 p {
   margin: 0;
@@ -209,4 +219,18 @@ ul {
       opacity: 1;
     }
   }
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 55px;
+  line-height: 100%;
+  letter-spacing: 0.01em;
+  font-family: variables.$secondFont;
+
+  @media (max-width: 767px) {
+    font-size: 34px;
+    line-height: 107%;
+  }
+
 }

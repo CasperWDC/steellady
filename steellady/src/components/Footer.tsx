@@ -64,7 +64,7 @@ function Footer() {
                             Контакты
                         </div>
 
-                        <a href="#" className='adress_link'>
+                        <a href="https://yandex.ru/maps/-/CDxF7Em2" className='adress_link' target="_blank">
                             г. Донецк, пр-т Мира, 15 БЦ «Centaur Plaza 1», 9 этаж, офис №92
                         </a>
                         <p>
@@ -89,7 +89,7 @@ function Footer() {
                         <ul className='media_links'>
                             {media.map((madiaLink, index) => {
                                 return (
-                                    <li><a href={madiaLink.link} className={madiaLink.name} target='_blank'></a></li>
+                                    <li key={index}><a href={madiaLink.link} className={madiaLink.name} target='_blank'></a></li>
                                 )
                             })}
                         </ul>

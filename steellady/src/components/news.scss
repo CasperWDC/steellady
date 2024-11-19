@@ -6,6 +6,10 @@
   &_container {
     display: flex;
     gap: 30px;
+
+    @media (max-width: 767px) {
+      flex-direction: column;
+    }
   }
 
   &_btn_container {

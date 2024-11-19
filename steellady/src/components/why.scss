@@ -11,7 +11,12 @@
   &_container {
     display: flex;
     gap: 30px;
+
+    @media (max-width: 1050px) {
+      flex-direction: column;
+    }
   }
+
 
   &_item {
     background: #fbfbfb;

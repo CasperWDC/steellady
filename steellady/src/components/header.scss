@@ -13,6 +13,14 @@
     backdrop-filter: blur(14px);
     background: rgba(22, 29, 39, 0.9);
 
+    @media (max-width: 991px) {
+      top: -84px;
+    }
+
+    @media (max-width: 767px) {
+      top: 0;
+    }
+
     .header_navigation .logo {
       width: 164px;
     }
@@ -30,8 +38,28 @@
     padding: 20px 15px;
     border-bottom: 1px solid #4E555F;
 
+    @media (max-width: 991px) {
+      padding: 15px 15px;
+    }
+
     img {
       max-height: 70px;
+
+      @media (max-width: 991px) {
+        max-height: 50px;
+      }
+
+      @media (max-width: 767px) {
+        max-height: 40px;
+      }
+    }
+
+    .hamburger-react {
+      display: none;
+
+      @media (max-width: 767px) {
+       display: inline-block;
+      }
     }
   }
 
@@ -45,6 +73,10 @@
     letter-spacing: 0.02em;
     text-align: right;
     color: #d1b06b;
+
+    @media (max-width: 767px) {
+      display: none;
+    }
   }
 
   &_navigation {
@@ -53,10 +85,35 @@
     padding: 20px 15px;
     border-bottom: 1px solid #4E555F;
 
+    @media (max-width: 991px) {
+      padding: 15px 15px;
+    }
+
+    @media (max-width: 767px) {
+     position: absolute;
+      z-index: -1;
+      width: 100%;
+      backdrop-filter: blur(14px);
+      background: rgba(22, 29, 39, 0.9);
+      flex-direction: column;
+      gap: 25px;
+      padding: 25px 15px;
+      top: -500%;
+      transition: 0.3s ease;
+
+      &.open {
+        top: 80px;
+      }
+    }
+
     .logo {
       width: 0;
       overflow: hidden;
       transition: 0.3s ease;
+
+      @media (max-width: 991px) {
+        display: none;
+      }
 
       img {
         max-height: 45px;
@@ -68,6 +125,14 @@
       display: flex;
       gap: 54px;
       align-items: center;
+
+      @media (max-width: 1100px) {
+        gap: 20px;
+      }
+
+      @media (max-width: 767px) {
+        flex-direction: column;
+      }
 
       a {
         font-weight: 400;
@@ -91,6 +156,18 @@
   &_contacts {
     display: flex;
     gap: 35px;
+
+    @media (max-width: 767px) {
+      align-items: center;
+      flex-direction: column;
+
+      gap: 15px;
+
+      a {
+        width: 192px;
+      }
+    }
+
   }
 
   &_contact {
@@ -106,6 +183,14 @@
       &.phon {
         background: url("../assets/img/icons/phone.svg") no-repeat center left;
         background-size: contain;
+
+        &_mobe {
+          background: url("../assets/img/icons/phon_mob.svg") no-repeat center left;
+          background-size: 17px;
+          padding: 15px 0 15px 35px;
+          margin: 0 auto;
+          width: max-content;
+        }
       }
 
       &.mail {

@@ -50,6 +50,17 @@ function Team() {
                                 gap : '30px',
                                 arrows : false,
                                 perPage : 4,
+                                breakpoints: {
+                                    1200: {
+                                        perPage: 3,
+                                    },
+                                    991: {
+                                        perPage: 2,
+                                    },
+                                    767: {
+                                        perPage: 1,
+                                    }
+                                }
                             } }
                     >
 

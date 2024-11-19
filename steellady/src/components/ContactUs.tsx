@@ -132,11 +132,11 @@ function ContactUs() {
     };
 
     return (
-        <section className='contactUs'>
+        <section className='contactUs' id='contacts'>
             <div className="container">
                 <h2 className='psuedo_center'>Свяжитесь с нами</h2>
                 <div className="contactUs_container">
-                    <div className="contactUs_info">
+                    <div className="contactUs_info" data-aos="fade-right">
                         <div className="contactUs_item schedule">
                             <p>График работы:</p>
                             <p>ПН.-ЧТ. с <b>9:00</b> до <b>17:00</b></p>
@@ -162,7 +162,7 @@ function ContactUs() {
                         </div>
                     </div>
 
-                    <div className="contactUs_form">
+                    <div className="contactUs_form" data-aos="fade-left">
                         <form className='contact_us' id='contact_us' onSubmit={handleSubmit} noValidate>
                             <label htmlFor="name">
                                 <p className='required'>Ваше имя*</p>

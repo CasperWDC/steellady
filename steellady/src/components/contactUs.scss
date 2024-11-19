@@ -5,11 +5,17 @@
   padding-top: 84px;
   padding-bottom: 84px;
   margin-top: 0;
+  overflow-x: hidden;
 
   &_container {
     display: flex;
     gap: 25px;
     justify-content: space-between;
+
+    @media (max-width: 991px) {
+      flex-direction: column;
+    }
+
   }
 
   &_info {
@@ -26,15 +32,26 @@
     letter-spacing: 0.02em;
     color: variables.$contentColor;
     position: relative;
+    
+    @media (max-width: 991px) {
+      font-size: 18px;
+      padding-left: 50px;
+    }
 
     &.schedule {
       background: url("../assets/img/icons/schedule.png") no-repeat left;
       background-size: 50px;
+      @media (max-width: 991px) {
+        background-size: 30px;
+      }
     }
 
     &.tel {
       background: url("../assets/img/icons/tel.png") no-repeat left;
       background-size: 50px;
+      @media (max-width: 991px) {
+        background-size: 30px;
+      }
 
       a {
         &:first-child {
@@ -50,6 +67,9 @@
     &.mail {
       background: url("../assets/img/icons/mail.png") no-repeat left;
       background-size: 50px;
+      @media (max-width: 991px) {
+        background-size: 30px;
+      }
 
       & .mail_copy {
         position: relative;
@@ -81,6 +101,9 @@
     &.adress {
       background: url("../assets/img/icons/adress.png") no-repeat left;
       background-size: 50px;
+      @media (max-width: 991px) {
+        background-size: 30px;
+      }
 
       a {
         font-weight: 700;
@@ -110,6 +133,10 @@
       flex-direction: column;
       padding: 40px 80px;
       gap: 20px;
+
+      @media (max-width: 991px) {
+        padding: 40px 40px;
+      }
     }
 
     label {
@@ -142,6 +169,7 @@
       border: 1px solid variables.$textColorDark;
       outline: none;
       resize: none;
+      box-sizing: border-box;
 
       &.error {
         border: 1px solid #ff2424;

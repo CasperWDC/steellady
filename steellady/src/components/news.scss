@@ -1,7 +1,11 @@
 @use '../assets/scss/_variables';
 
 .news {
-  margin-bottom: 84px;
+  margin-bottom: 100px;
+
+  @media (max-width: 767px) {
+    margin-bottom: 80px;
+  }
 
   &_container {
     display: flex;
@@ -19,6 +23,10 @@
 
     .main_cta {
       padding: 12px 70px;
+      border-radius: 2px;
+      @media (max-width: 767px) {
+        padding: 12px 50px;
+      }
     }
   }
 
@@ -35,6 +43,10 @@
         height: 280px;
         background-size: cover !important;
         background-position: center !important;
+
+        @media (max-width: 767px) {
+          height: 120px;
+        }
       }
     }
 
@@ -63,6 +75,11 @@
       line-height: 150%;
       letter-spacing: 0.02em;
       font-family: variables.$secondFont;
+
+      @media (max-width: 767px) {
+        font-size: 22px;
+      }
+
     }
 
     &_prev {
@@ -83,6 +100,10 @@
       position: relative;
       display: inline-block;
       width: max-content;
+
+      @media (max-width: 767px) {
+        font-size: 16px;
+      }
 
       &:after {
         content: "";

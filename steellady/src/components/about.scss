@@ -16,6 +16,10 @@
     line-height: 160%;
     color: variables.$contentColor;
 
+    @media (max-width: 767px) {
+      font-size: 16px;
+    }
+
     &:last-of-type {
       margin-bottom: 0;
     }
@@ -34,6 +38,10 @@
 
     @media (max-width: 991px) {
       flex-direction: row;
+    }
+
+    @media (max-width: 767px) {
+      display: none;
     }
 
     div {

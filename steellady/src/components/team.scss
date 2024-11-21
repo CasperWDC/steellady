@@ -2,8 +2,19 @@
 
 .team {
   background: #fff;
-  padding-top: 84px;
-  padding-bottom: 84px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  @media (max-width: 767px) {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  &_container {
+    @media (max-width: 767px) {
+      padding-top: 40px;
+    }
+  }
 
   h2 {
     color: variables.$textColorDark;
@@ -28,6 +39,10 @@
     line-height: 130%;
     letter-spacing: 0.01em;
     text-align: center;
+
+    @media (max-width: 767px) {
+      font-size: 22px;
+    }
   }
 
   &_status {
@@ -37,6 +52,10 @@
     letter-spacing: 0.02em;
     text-align: center;
     color: variables.$textColorAcсent;
+
+    @media (max-width: 767px) {
+      font-size: 16px;
+    }
   }
 
   .splide__pagination {

@@ -1,7 +1,11 @@
 @use '../assets/scss/_variables';
 
 .services {
-  padding-bottom: 84px;
+
+  @media (max-width: 767px) {
+    padding: 80px 0;
+    background: #1f2732;
+  }
 
   h2 {
     text-align: center;
@@ -10,6 +14,12 @@
   .border_top {
     border-top: 1px solid #4e555f;
     padding-top: 70px;
+
+    @media (max-width: 767px) {
+      border-top: none;
+      padding-top: 0;
+    }
+
   }
 
   &_container {
@@ -19,6 +29,7 @@
     
     @media (max-width: 767px) {
       grid-template-columns: repeat(1, 1fr);
+      gap: 23px;
     }
   }
 
@@ -26,30 +37,62 @@
     background: #1f2732;
     padding: 25px 50px;
     transition: 0.2s ease;
+    border-radius: 2px;
+
+    @media (max-width: 767px) {
+      padding: 0;
+    }
 
     &:hover {
       background: #2e3947;
     }
+
+    @media (max-width: 767px) {
+      &:last-of-type {
+        .services_title {
+          padding-bottom: 0;
+          border-bottom: none;
+        }
+      }
+    }
+
   }
 
   &_title {
     display: flex;
     gap: 40px;
     align-items: center;
-    padding-bottom: 20px;
+    padding-bottom: 23px;
     border-bottom: 1px solid #4e555f;
+
+    @media (max-width: 767px) {
+      gap: 25px;
+    }
 
     img {
       max-width: 40px;
     }
+    p {
+      font-size: 26px;
+      font-family: variables.$secondFont;
+
+      @media (max-width: 767px) {
+        font-size: 22px;
+      }
+    }
   }
   &_content {
-    margin-top: 20px;
+    padding-top: 20px;
     font-weight: 400;
     font-size: 16px;
     line-height: 175%;
     letter-spacing: 0.03em;
     color: variables.$contentColor;
+
+    @media (max-width: 767px) {
+      display: none;
+    }
   }
+
 
 }

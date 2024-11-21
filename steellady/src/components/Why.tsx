@@ -58,7 +58,7 @@ function Why() {
 
     return (
         <section className='why' >
-            <div className="container border_top">
+            <div className="container">
                 <h2 className='psuedo_center'>Почему к нам стоит обратиться?</h2>
                 <div className="why_container" ref={ref}>
                     <div className="why_item">

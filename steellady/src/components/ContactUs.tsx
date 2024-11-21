@@ -163,7 +163,11 @@ function ContactUs() {
                     </div>
 
                     <div className="contactUs_form" data-aos="fade-left">
+
                         <form className='contact_us' id='contact_us' onSubmit={handleSubmit} noValidate>
+
+                            <h2 className='psuedo_center form_title_mob'>Оставьте заявку</h2>
+
                             <label htmlFor="name">
                                 <p className='required'>Ваше имя*</p>
                                 <input
@@ -204,7 +208,8 @@ function ContactUs() {
                                 <span>Я согласен на обработку персональных данных</span>
                             </label>
 
-                            {Object.values(errors).some(error => error) && <p className="error_message">Заполните поля корректно</p>}
+                            {Object.values(errors).some(error => error) &&
+                                <p className="error_message">Заполните поля корректно</p>}
                             {successMessage && <p className="success_message">{successMessage}</p>}
 
                             <button type='submit' disabled={successMessage ? true : false}>

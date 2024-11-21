@@ -1,60 +1,81 @@
 @use '../assets/scss/_variables';
 
 .reviews {
-    margin-bottom: 84px;
+  margin-bottom: 100px;
 
-    .review {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
+  .review {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 
-        &_header {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-            span {
-                border-radius: 100%;
-                width: 84px;
-                height: 84px;
-                background-size: cover;
-                background-position: center;
-            }
-        }
-        &_name {
-            font-family: variables.$secondFont;
-            font-size: 30px;
-            line-height: 130%;
-            letter-spacing: 0.01em;
-        }
+    &_header {
+      display: flex;
+      gap: 20px;
+      align-items: center;
 
-        &_status {
-            font-weight: 400;
-            font-size: 18px;
-            line-height: 178%;
-            letter-spacing: 0.02em;
-            color: variables.$contentColor;
-        }
-
-        &_content {
-            background: #2e3947;
-            padding: 30px 20px;
-            border-radius: 40px 0 0 0;
-            font-weight: 400;
-            font-size: 20px;
-            line-height: 160%;
-            letter-spacing: 0.02em;
-            color: variables.$contentColor;
-        }
-
-
-        &:nth-child(even) {
-            flex-direction: column-reverse;
-
-            .review_content {
-                border-radius: 0 0 0 40px;
-            }
-        }
-
+      span {
+        border-radius: 100%;
+        width: 84px;
+        height: 84px;
+        background-size: cover;
+        background-position: center;
+      }
     }
+
+    &_name {
+      font-family: variables.$secondFont;
+      font-size: 30px;
+      line-height: 130%;
+      letter-spacing: 0.01em;
+
+      @media (max-width: 767px) {
+        font-size: 22px;
+      }
+    }
+
+    &_status {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 178%;
+      letter-spacing: 0.02em;
+      color: variables.$contentColor;
+      @media (max-width: 767px) {
+        font-size: 16px;
+      }
+    }
+
+    &_content {
+      background: url("../assets/img/quote.svg") no-repeat top 51px left 30px #2e3947;
+      padding: 110px 20px 30px;
+      border-radius: 40px 0 0 0;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 160%;
+      letter-spacing: 0.02em;
+      color: variables.$contentColor;
+
+      @media (max-width: 767px) {
+        background: url("../assets/img/quote.svg") no-repeat top 20px left 20px #2e3947;
+        background-size: 22px;
+        padding: 60px 20px 30px;
+        font-size: 16px;
+      }
+    }
+
+    &:nth-child(even) {
+      flex-direction: column-reverse;
+
+      .review_content {
+        border-radius: 0 0 0 40px;
+      }
+    }
+
+  }
+
+  &_container {
+    @media (max-width: 767px) {
+      padding-top: 40px;
+    }
+  }
 
 }

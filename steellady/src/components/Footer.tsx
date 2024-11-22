@@ -1,4 +1,3 @@
-import {Link} from "react-router-dom";
 import './footer.scss'
 
 import Logo from '../assets/img/logo.svg';
@@ -35,25 +34,28 @@ function Footer() {
                         <div className="footer_title">
                             Меню
                         </div>
-                        <nav>
-                            <Link to="/">Home</Link>
-                            <Link to="/about">About</Link>
-                        </nav>
+                        <div className='nav'>
+                            <a href="/" className='active'>Главная</a>
+                            <a href="/#about">О нас</a>
+                            <a href="/#services">Услуги</a>
+                            <a href="/#contacts">Контакты</a>
+                        </div>
                     </div>
                     <div className="footer_service">
                         <div className="footer_title">
                             Услуги
                         </div>
-                        <nav>
-                            <Link to="/">Home</Link>
-                            <Link to="/about">About</Link>
-                            <Link to="/about">About</Link>
-                            <Link to="/about">About</Link>
-                            <Link to="/about">About</Link>
-                            <Link to="/about">About</Link>
-                            <Link to="/about">About</Link>
-                            <Link to="/about">About</Link>
-                        </nav>
+
+                        <div className='nav'>
+                            <a href="/" className='active'>Главная</a>
+                            <a href="/#about">О нас</a>
+                            <a href="/#services">Услуги</a>
+                            <a href="/#contacts">Контакты</a>
+                            <a href="/" className='active'>Главная</a>
+                            <a href="/#about">О нас</a>
+                            <a href="/#services">Услуги</a>
+                            <a href="/#contacts">Контакты</a>
+                        </div>
                     </div>
                     <div className="footer_contacts">
                         <div className="footer_title">

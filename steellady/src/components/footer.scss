@@ -85,14 +85,14 @@
     font-family: variables.$secondFont;
   }
 
-  nav {
+  .nav {
     display: flex;
     flex-direction: column;
 
     a {
       transition: 0.2s ease;
 
-      &:hover {
+      &:hover, &.active {
         color: variables.$textColorAcсent;
       }
     }
@@ -111,7 +111,7 @@
   &_service {
     width: 50%;
 
-    nav {
+    .nav {
       flex-direction: row;
       flex-wrap: wrap;
 

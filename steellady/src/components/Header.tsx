@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import {Link} from "react-router-dom";
 import Hamburger from 'hamburger-react'
 import "./header.scss";
 import Logo from '../assets/img/logo.svg';

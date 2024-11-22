@@ -7,6 +7,10 @@
     height: 248px;
     background: url("../assets/img/footer_img.jpg") no-repeat center;
     background-size: cover;
+
+    @media (max-width: 767px) {
+      height: 60px;
+    }
   }
 
   &_logo {
@@ -23,15 +27,34 @@
       top: 0;
       left: 0;
     }
+
     &:before {
       background: url("../assets/img/footer_line.svg") no-repeat center right 160px;
+      @media (max-width: 767px) {
+        background: url("../assets/img/footer_line.svg") no-repeat center right 80px;
+        background-size: auto 100%;
+      }
     }
+
     &:after {
       left: auto;
       right: 0;
       background: url("../assets/img/footer_line.svg") no-repeat center right 160px;
       transform: rotate(180deg);
+      @media (max-width: 767px) {
+        background: url("../assets/img/footer_line.svg") no-repeat center right 80px;
+        background-size: auto 100%;
+      }
     }
+
+    @media (max-width: 767px) {
+      margin: 14px 0 45px;
+
+      img {
+        height: 39px;
+      }
+    }
+
   }
 
   &_navigation {
@@ -43,6 +66,11 @@
       flex-direction: column;
       gap: 30px;
     }
+
+    @media (max-width: 991px) {
+      display: none;
+    }
+
   }
 
   &_title {
@@ -63,27 +91,30 @@
 
     a {
       transition: 0.2s ease;
+
       &:hover {
         color: variables.$textColorAcсent;
       }
     }
   }
 
- a, p {
-   font-family: var(--font-family);
-   font-weight: 400;
-   font-size: 18px;
-   line-height: 122%;
-   letter-spacing: 0.02em;
-   color: variables.$contentColor;
-   padding: 10px 0;
- }
+  a, p {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 122%;
+    letter-spacing: 0.02em;
+    color: variables.$contentColor;
+    padding: 10px 0;
+  }
 
   &_service {
     width: 50%;
+
     nav {
       flex-direction: row;
       flex-wrap: wrap;
+
       a {
         width: 50%;
       }
@@ -92,19 +123,22 @@
 
   &_contacts {
     width: 25%;
+
     .adress_link {
       display: block;
-
     }
+
     p {
       display: flex;
       gap: 15px;
+
       a {
         font-weight: 500;
         padding: 0;
       }
     }
   }
+
   &_menu {
     width: 25%;
   }
@@ -114,26 +148,48 @@
     border-top: 1px solid #3b434e;
     border-bottom: 1px solid #3b434e;
     margin: 30px 0;
+
+    @media (max-width: 767px) {
+      border: none;
+      text-align: center;
+      padding: 0;
+    }
+
+
     p {
       font-weight: 400;
       font-size: 14px;
-      line-height: 110%;
+      line-height: 130%;
       letter-spacing: 0.02em;
       color: variables.$contentColor;
       padding: 2px 0;
+
     }
   }
 
   &_info {
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: 767px) {
+      flex-direction: column-reverse;
+      gap: 28px;
+    }
   }
+
   &_copyright {
     font-size: 16px;
+
     a {
       font-size: 16px;
       color: variables.$textColorAcсent;
       font-weight: 500;
+    }
+
+    @media (max-width: 767px) {
+      border-top: 1px solid #4E555F;
+      padding-top: 18px;
+      text-align: center;
     }
   }
 
@@ -142,10 +198,19 @@
     align-items: center;
     gap: 25px;
 
+    @media (max-width: 767px) {
+      align-items: center;
+      flex-direction: column;
+      gap: 17px;
+    }
+
     p {
       font-size: 16px;
       color: variables.$textColorAcсent;
       font-weight: 400;
+      @media (max-width: 767px) {
+        padding: 0;
+      }
     }
 
     .media_links {
@@ -157,23 +222,47 @@
 
       a {
         display: block;
-        width: 25px;
-        height: 25px;
+        width: 30px;
+        height: 30px;
         padding: 0;
 
         &.vk {
-          background: url("../assets/img/icons/vk.png") no-repeat center;
+          background: url("../assets/img/icons/vk.svg") no-repeat center;
+          background-size: contain;
         }
+
         &.tg {
-          background: url("../assets/img/icons/tg.png") no-repeat center;
+          background: url("../assets/img/icons/tg.svg") no-repeat center;
+          background-size: contain;
         }
+
         &.vb {
-          background: url("../assets/img/icons/vb.png") no-repeat center;
+          background: url("../assets/img/icons/vb.svg") no-repeat center;
+          background-size: contain;
         }
+
         &.wz {
           background: url("../assets/img/icons/wz.png") no-repeat center;
+          background-size: contain;
         }
       }
+    }
+
+  }
+
+  &_tel_mob {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    color: variables.$contentColor !important;
+
+    a {
+      padding-bottom: 0;
+      font-weight: 600;
+    }
+
+    @media (max-width: 767px) {
+      display: flex;
     }
 
   }

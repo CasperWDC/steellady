@@ -139,8 +139,8 @@ function ContactUs() {
                     <div className="contactUs_info" data-aos="fade-right">
                         <div className="contactUs_item schedule">
                             <p>График работы:</p>
-                            <p>ПН.-ЧТ. с <b>9:00</b> до <b>17:00</b></p>
-                            <p>ПТ. с <b>9:00</b> до <b>16:00</b></p>
+                            <p>ПН.-ЧТ. с 9:00 до 17:00</p>
+                            <p>ПТ. с 9:00 до 16:00</p>
                         </div>
 
                         <div className="contactUs_item tel">

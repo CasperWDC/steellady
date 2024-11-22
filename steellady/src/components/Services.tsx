@@ -1,13 +1,13 @@
 import "./services.scss";
 
-import Service1 from '../assets/img/services/s1.png'
-import Service2 from '../assets/img/services/s2.png'
-import Service3 from '../assets/img/services/s3.png'
-import Service4 from '../assets/img/services/s4.png'
-import Service5 from '../assets/img/services/s5.png'
-import Service6 from '../assets/img/services/s6.png'
-import Service7 from '../assets/img/services/s7.png'
-import Service8 from '../assets/img/services/s8.png'
+import Service1 from '../assets/img/services/s1.svg'
+import Service2 from '../assets/img/services/s2.svg'
+import Service3 from '../assets/img/services/s3.svg'
+import Service4 from '../assets/img/services/s4.svg'
+import Service5 from '../assets/img/services/s5.svg'
+import Service6 from '../assets/img/services/s6.svg'
+import Service7 from '../assets/img/services/s7.svg'
+import Service8 from '../assets/img/services/s8.svg'
 
 function Header() {
 
@@ -64,7 +64,7 @@ function Header() {
 
 
     return (
-        <section className='services'>
+        <section className='services' id='services'>
             <div className="container border_top">
                 <h2 className='psuedo_left'>Наши услуги</h2>
                 <div className="services_container">

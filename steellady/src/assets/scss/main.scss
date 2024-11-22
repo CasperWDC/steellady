@@ -212,9 +212,11 @@ h2 {
     text-align: center;
     &:before {
       left: calc(50% - 47px);
+      background: url(../../assets/img/head_item1.svg) no-repeat center;
 
       @media (max-width: 767px) {
         left: calc(50% - 25px);
+        background: url(../../assets/img/head_item_m.svg) no-repeat center;
       }
     }
   }

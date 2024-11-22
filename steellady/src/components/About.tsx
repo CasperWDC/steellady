@@ -11,7 +11,7 @@ function Header() {
     }, [])
 
     return (
-        <section  className={`about`}>
+        <section  className={`about`} id='about'>
             <div className="container about_container">
                 <div className="about_col_img">
                     <div data-aos="fade-right">
@@ -33,7 +33,7 @@ function Header() {
                         правовые задачи и добиваются положительных результатов для клиентов.
                     </p>
 
-                    <p className='mb-0'>
+                    <p>
                         Мы предлагаем квалифицированную юридическую помощь в различных областях права, от семейных и
                         гражданских дел до узкоспециализированных отраслей. В нашем портфолио:
                     </p>

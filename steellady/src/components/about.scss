@@ -13,7 +13,7 @@
   p {
     font-size: 18px;
     margin-bottom: 25px;
-    line-height: 160%;
+    line-height: 130%;
     color: variables.$contentColor;
 
     @media (max-width: 767px) {
@@ -62,12 +62,12 @@
       }
 
       &:nth-child(1) {
-          background: url('../assets/img/about1.jpg') no-repeat center;
+          background: url('../assets/img/about11.jpg') no-repeat center;
           background-size: cover;
       }
 
       &:nth-child(2) {
-          background: url('../assets/img/about2.jpg') no-repeat center;
+          background: url('../assets/img/about22.jpg') no-repeat center;
           background-size: cover;
       }
 

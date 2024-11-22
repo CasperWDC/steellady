@@ -39,12 +39,13 @@ function Header() {
                     <Hamburger toggled={isOpen} toggle={setOpen} size={30} color="#D1B06B" />
                 </div>
                 <div className={`header_navigation ${isOpen ? 'open' : ''}`}>
-                    <nav>
-                        <Link to="/" className='active'>Главная</Link>
-                        <Link to="/#about">О нас</Link>
-                        <Link to="/#service">Услуги</Link>
-                        <Link to="/#contacts">Контакты</Link>
-                    </nav>
+                    <div className='nav'>
+                        <a href="/" className='active'>Главная</a>
+                        <a href="/#about">О нас</a>
+                        <a href="/#services">Услуги</a>
+                        <a href="/#contacts">Контакты</a>
+                    </div>
+
                     <a href='/' className="logo">
                         <img src={Logo} alt=""/>
                     </a>

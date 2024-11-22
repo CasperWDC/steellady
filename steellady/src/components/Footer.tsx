@@ -18,10 +18,6 @@ function Footer() {
             name: 'vb',
             link: '/',
         },
-        {
-            name: 'wz',
-            link: '/',
-        },
     ]
     return (
         <div className='footer'>
@@ -85,11 +81,17 @@ function Footer() {
                         ЮК “Стальная и Партнёры” | Разработка сайта <a href="/">MMelnyk</a>
                     </div>
                     <div className="footer_media">
+                        <p className='footer_tel_mob'>
+                            Телефон:
+                            <a href="tel:+7-949-501-22-20">+7-949-501-22-20</a>
+                        </p>
+
                         <p>Соц.сети:</p>
                         <ul className='media_links'>
                             {media.map((madiaLink, index) => {
                                 return (
-                                    <li key={index}><a href={madiaLink.link} className={madiaLink.name} target='_blank'></a></li>
+                                    <li key={index}><a href={madiaLink.link} className={madiaLink.name}
+                                                       target='_blank'></a></li>
                                 )
                             })}
                         </ul>

@@ -133,6 +133,10 @@
 
   &_form {
 
+    @media (max-width: 767px) {
+      margin-top: 80px;
+    }
+
     .error_message {
       color: #ff2424;
     }

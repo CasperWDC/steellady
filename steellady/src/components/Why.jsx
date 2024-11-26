@@ -3,23 +3,28 @@ import Hart from '../assets/img/icons/hart.svg';
 import Star from '../assets/img/icons/star.svg';
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
-function Why() {
+function Why ({ content }) {
+
+    if (!content || content?.acf?.w_visible == 'false') {
+        console.log('data fetching')
+        return
+    }
 
     const { ref, inView } = useInView({
-        threshold: 0.6, // 50% видимости
+        threshold: 0.6, // 60% видимости
     });
 
     const animateValue = (
-        element: HTMLElement | null,
-        start: number,
-        end: number,
-        duration: number
+        element,
+        start,
+        end,
+        duration
     ) => {
         if (!element) return;
 
-        let startTimestamp: number | null = null;
+        let startTimestamp = null;
 
-        const step = (timestamp: number) => {
+        const step = (timestamp) => {
             if (!startTimestamp) startTimestamp = timestamp;
             const progress = Math.min((timestamp - startTimestamp) / duration, 1);
             element.innerText = Math.floor(progress * (end - start) + start).toString();
@@ -33,14 +38,14 @@ function Why() {
 
     useEffect(() => {
         if (inView) {
-            const clientsElement = document.getElementById('clients');
-            const winElement = document.getElementById('win');
+            const clientsElement = document.getElementById("clients");
+            const winElement = document.getElementById("win");
 
             if (clientsElement) {
                 animateValue(
                     clientsElement,
-                    parseInt(clientsElement.getAttribute('data-from') || '0', 10),
-                    parseInt(clientsElement.getAttribute('data-to') || '0', 10),
+                    parseInt(clientsElement.getAttribute("data-from") || "0", 10),
+                    parseInt(clientsElement.getAttribute("data-to") || "0", 10),
                     500
                 );
             }
@@ -48,41 +53,43 @@ function Why() {
             if (winElement) {
                 animateValue(
                     winElement,
-                    parseInt(winElement.getAttribute('data-from') || '0', 10),
-                    parseInt(winElement.getAttribute('data-to') || '0', 10),
+                    parseInt(winElement.getAttribute("data-from") || "0", 10),
+                    parseInt(winElement.getAttribute("data-to") || "0", 10),
                     500
                 );
             }
         }
     }, [inView]);
 
+
+
     return (
         <section className='why' >
             <div className="container">
-                <h2 className='psuedo_center'>Почему к нам стоит обратиться?</h2>
+                <h2 className='psuedo_center'>{content?.acf?.w_title}</h2>
                 <div className="why_container" ref={ref}>
                     <div className="why_item">
                         <div className='why_counter'>
                             <img src={Hart} alt=""/>
-                            <span id='clients' data-from='50' data-to='118'>1</span>
+                            <span id='clients' data-from='50' data-to={content?.acf?.w_f_num}>1</span>
                         </div>
                         <div className="why_content">
-                            Клиентов доверяют нам
+                            {content?.acf?.w_f_block}
                         </div>
                     </div>
                     <div className="why_item">
                         <div className='why_counter'>
                             <img src={Star} alt=""/>
-                            <span id='win' data-from='50' data-to='194'>1</span>
+                            <span id='win' data-from='50' data-to={content?.acf?.w_s_num}>1</span>
                         </div>
                         <div className="why_content">
-                            Выигранных дела
+                            {content?.acf?.w_s_block}
                         </div>
                     </div>
                     <div className="why_item why_item_img">
-                        <p>1 000 000 руб</p>
+                        <p>{content?.acf?.w_t_num}</p>
                         <div className="why_content">
-                            Оспоренных штрафов
+                            {content?.acf?.w_t_block}
                         </div>
                     </div>
                 </div>

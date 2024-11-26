@@ -2,47 +2,19 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/core';
 import "./team.scss";
 
-import Team1 from '../assets/img/team/team1.jpg';
 
-function Team() {
-    const team = [
-        {
-            name: 'John Turner',
-            status: 'юрист по гражданским делам',
-            img: Team1,
-        },
-        {
-            name: 'Martha Black',
-            status: 'адвокат по дтп',
-             img: Team1,
-        },
-        {
-            name: 'John Turner',
-            status: 'юрист по гражданским делам',
-            img: Team1,
-        },
-        {
-            name: 'Brian Gomez',
-            status: 'юрист по семейным делам',
-            img: Team1,
-        },
-        {
-            name: 'Brian Gomez',
-            status: 'юрист по семейным делам',
-            img: Team1,
-        },
-        {
-            name: 'Brian Gomez',
-            status: 'юрист по семейным делам',
-            img: Team1,
-        },
-    ]
+function Team ({ content }) {
+
+    if (!content || content?.acf?.t_visible == 'false') {
+        console.log('data fetching')
+        return
+    }
 
 
     return (
         <section className='team' >
             <div className="container">
-                <h2 className='psuedo_center'>Наша команда</h2>
+                <h2 className='psuedo_center'>{content?.acf?.t_title}</h2>
                 <div className="team_container">
                     <Splide aria-label="Наша команда"
                             options={ {
@@ -64,14 +36,14 @@ function Team() {
                             } }
                     >
 
-                        {team.map((review, index) => {
+                        {content?.acf?.team.map((team, index) => {
                             return (
                                 <SplideSlide className='team_slider' key={index}>
-                                    <div className="team_photo" style={{ background: `url(${review.img})` }}>
+                                    <div className="team_photo" style={{ background: `url(${team.t_img})` }}>
                                     </div>
                                     <div className="team_content">
-                                        <p className='team_name'>{review.name}</p>
-                                        <p className='team_status'>{review.status}</p>
+                                        <p className='team_name'>{team.t_name}</p>
+                                        <p className='team_status'>{team.t_position}</p>
                                     </div>
                                 </SplideSlide>
                             )

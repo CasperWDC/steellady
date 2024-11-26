@@ -1,12 +1,19 @@
 import './home_banner.scss'
+import {useState} from "react";
 
-function Home_banner() {
+
+function Home_banner({ content }) {
+
+    if (!content) {
+        console.log('data fetching')
+        return
+    }
 
     return (
         <div className='home_banner'>
             <div className="home_banner_contact">
                 <a href='tel:+79495012220' className="header_contact_item phon phon_mobe" id='head_phone_mob'>
-                    <span>+7949-501-22-20</span>
+                    <span>{content.acf.main_contacts.main_phone}</span>
                 </a>
             </div>
             <div className="container">
@@ -14,10 +21,9 @@ function Home_banner() {
 
 
                     <div className="home_banner_content">
-                        <h1>Профессиональные юристы в ДНР</h1>
+                        <h1>{content.acf.title}</h1>
                         <p className='subtitle'>
-                            Многолетняя практика и глубокое знание законодательства для решения ваших юридических
-                            вопросов
+                            {content.acf.subtitle}
                         </p>
 
                         <a href="#contacts" className='main_cta'>

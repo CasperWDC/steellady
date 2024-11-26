@@ -2,28 +2,22 @@ import { useState, ChangeEvent, FormEvent, KeyboardEvent } from 'react';
 import "./contactUs.scss";
 import emailjs from '@emailjs/browser';
 
-interface FormState {
-    name: string;
-    contact: string;
-    message: string;
-}
 
-interface ErrorsState {
-    name?: boolean;
-    contact?: boolean;
-    message?: boolean;
-    form?: string;
-}
+function ContactUs ({ content }) {
 
-function ContactUs() {
-    const email = "jurist.stalnaya@gmail.com";
+    if (!content || content?.acf?.c_visible == 'false') {
+        console.log('data fetching')
+        return
+    }
+
+    const email = content?.acf?.email;
     const [isCopied, setIsCopied] = useState(false);
-    const [form, setForm] = useState<FormState>({
+    const [form, setForm] = useState({
         name: "",
         contact: "",
         message: ""
     });
-    const [errors, setErrors] = useState<ErrorsState>({});
+    const [errors, setErrors] = useState({});
     const [successMessage, setSuccessMessage] = useState('');
 
     const patterns = {
@@ -41,37 +35,41 @@ function ContactUs() {
         }
     };
 
-    const validateField = (value: string, type: string) => {
-        if (type === 'textarea' && !value) {
+    const validateField = (value, type) => {
+        if (type === "textarea" && !value) {
             return true;
         }
-        return patterns[type as keyof typeof patterns]?.pattern.test(value);
+        return patterns[type]?.pattern.test(value);
     };
 
-    const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        setSuccessMessage('');
+    const handleChange = (event) => {
+        setSuccessMessage("");
         const { name, value, type } = event.target;
         const isValid = validateField(value, type);
-        setForm(prevForm => ({ ...prevForm, [name]: value }));
-        setErrors(prevErrors => ({ ...prevErrors, [name]: !isValid }));
+        setForm((prevForm) => ({ ...prevForm, [name]: value }));
+        setErrors((prevErrors) => ({ ...prevErrors, [name]: !isValid }));
     };
 
-    const handleKeyDown = (event: KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        setSuccessMessage('');
+    const handleKeyDown = (event) => {
+        setSuccessMessage("");
         const { key, type, ctrlKey, metaKey } = event;
-        const pattern = patterns[type as keyof typeof patterns]?.keyPattern;
+        const pattern = patterns[type]?.keyPattern;
 
         if (
-            pattern && !pattern.test(key) &&
+            pattern &&
+            !pattern.test(key) &&
             !["Backspace", "Delete", "ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Tab"].includes(key) &&
-            !ctrlKey && !metaKey
+            !ctrlKey &&
+            !metaKey
         ) {
             event.preventDefault();
         }
     };
 
-    const handleCopy = () => {
-        navigator.clipboard.writeText(email).then(() => {
+    const handleCopy = (event) => {
+        const emailToCopy = event.currentTarget.getAttribute("data-mail");
+
+        navigator.clipboard.writeText(emailToCopy).then(() => {
             setIsCopied(true);
             setTimeout(() => {
                 setIsCopied(false);
@@ -79,73 +77,74 @@ function ContactUs() {
         });
     };
 
-    const handleSubmit = async (event: FormEvent) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        const isValidForm = Object.keys(form).every(key => {
-            if (key === 'contact') {
-                return validateField(form[key as keyof FormState], 'tel');
-            } else if (key === 'message') {
-                if (form[key as keyof FormState].trim() === '') {
+
+        const isValidForm = Object.keys(form).every((key) => {
+            if (key === "contact") {
+                return validateField(form[key], "tel");
+            } else if (key === "message") {
+                if (form[key].trim() === "") {
                     return true;
                 } else {
-                    return validateField(form[key as keyof FormState], 'textarea');
+                    return validateField(form[key], "textarea");
                 }
             } else {
-                return validateField(form[key as keyof FormState], 'text');
+                return validateField(form[key], "text");
             }
         });
 
         if (!isValidForm || !form.contact) {
             setErrors({
-                name: !validateField(form.name, 'text'),
-                contact: !validateField(form.contact, 'tel')
+                name: !validateField(form.name, "text"),
+                contact: !validateField(form.contact, "tel"),
             });
-            setSuccessMessage('');
+            setSuccessMessage("");
             return;
         }
 
         try {
-            const loader = document.querySelector('.loader') as HTMLElement;
-            loader.style.display = 'block';
+            const loader = document.querySelector(".loader");
+            if (loader) loader.style.display = "block";
 
             await emailjs.send(
-                'service_oysd6so',
-                'template_vtpcpgo',
+                "service_oysd6so",
+                "template_vtpcpgo",
                 {
                     from_name: form.name,
-                    to_name: 'nikisshlife@gmail.com',
-                    subject: 'Новая заявка с сайта Jurist-Stalnaya.ru',
-                    message: `Имя:${form.name}\n Контакт: ${form.contact}\nСообщение: ${form.message}`
+                    to_name: "nikisshlife@gmail.com",
+                    subject: "Новая заявка с сайта Jurist-Stalnaya.ru",
+                    message: `Имя: ${form.name}\nКонтакт: ${form.contact}\nСообщение: ${form.message}`,
                 },
-                { publicKey: '8VMs9CNZgMrnhOttL' }
+                { publicKey: "8VMs9CNZgMrnhOttL" }
             );
 
-            loader.style.display = 'none';
-            setSuccessMessage('Спасибо за запрос, мы свяжемся с Вами!');
+            if (loader) loader.style.display = "none";
+            setSuccessMessage("Спасибо за запрос, мы свяжемся с Вами!");
             setForm({ name: "", contact: "", message: "" });
             setErrors({});
         } catch (error) {
-            const loader = document.querySelector('.loader') as HTMLElement;
-            loader.style.display = 'none';
-            setErrors({ form: 'Что-то пошло не так, письмо не отправлено' });
+            const loader = document.querySelector(".loader");
+            if (loader) loader.style.display = "none";
+            setErrors({ form: "Что-то пошло не так, письмо не отправлено" });
         }
     };
 
     return (
         <section className='contactUs' id='contacts'>
             <div className="container">
-                <h2 className='psuedo_center'>Свяжитесь с нами</h2>
+                <h2 className='psuedo_center'>{content?.acf?.c_title}</h2>
                 <div className="contactUs_container">
                     <div className="contactUs_info" data-aos="fade-right">
                         <div className="contactUs_item schedule">
                             <p>График работы:</p>
-                            <p>ПН.-ЧТ. с 9:00 до 17:00</p>
-                            <p>ПТ. с 9:00 до 16:00</p>
+                            <p>{content?.acf?.schedule?.schedule_f}</p>
+                            <p>{content?.acf?.schedule?.schedule_s}</p>
                         </div>
 
                         <div className="contactUs_item tel">
-                            <a href="tel:+7(949) 501-22-20">+7(949) 501-22-20 (Viber)</a>
-                            <a href="tel:+3 8(095) 096-79-11">+3 8(095) 096-79-11 (Telegram, WhatsApp)</a>
+                            <a href={`tel:${content?.acf?.phons?.phon_f}`}>{content?.acf?.phons?.phon_f} (Viber)</a>
+                            <a href={`tel:${content?.acf?.phons?.phon_s}`}>{content?.acf?.phons?.phon_s} (Telegram, WhatsApp)</a>
                         </div>
 
                         <div className="contactUs_item mail">
@@ -156,9 +155,9 @@ function ContactUs() {
                         </div>
 
                         <div className="contactUs_item adress">
-                            <p></p>г. Донецк, пр-т Мира, 15.
-                            <p></p>БЦ «Centaur Plaza 1», 9 этаж, офис №92
-                            <a href="https://yandex.ru/maps/-/CDtOnD3p" target='_blank'>Построить маршрут</a>
+                            <p>{content?.acf?.adress?.adress_f}</p>
+                            <p>{content?.acf?.adress?.adress_s}</p>
+                            <a href={content?.acf?.adress?.adress_map} target='_blank'>Построить маршрут</a>
                         </div>
                     </div>
 

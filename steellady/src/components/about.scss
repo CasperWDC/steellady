@@ -78,6 +78,20 @@
     }
   }
 
+  &_mob_img {
+    height: 206px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 32px;
+    background: url('../assets/img/about11.jpg') no-repeat center;
+    background-size: cover;
+
+    display: none;
+    @media (max-width: 767px) {
+      display: block;
+    }
+  }
+
 }
 
 @keyframes imgShow {

@@ -29,9 +29,10 @@ function Header({ content }) {
 
                     </div>
                 </div>
-            <div className="about_col">
-                <h2>{content?.acf?.o_title}</h2>
-                <div dangerouslySetInnerHTML={{ __html: content?.acf?.about_text }} />
+                <div className="about_col">
+                    <h2>{content?.acf?.o_title}</h2>
+                    <div className='about_mob_img'></div>
+                    <div dangerouslySetInnerHTML={{__html: content?.acf?.about_text}}/>
                 </div>
             </div>
 

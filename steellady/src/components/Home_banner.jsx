@@ -12,7 +12,7 @@ function Home_banner({ content }) {
     return (
         <div className='home_banner'>
             <div className="home_banner_contact">
-                <a href='tel:+79495012220' className="header_contact_item phon phon_mobe" id='head_phone_mob'>
+                <a href={`tel:${content.acf.main_contacts.main_phone}`} className="header_contact_item phon phon_mobe" id='head_phone_mob'>
                     <span>{content.acf.main_contacts.main_phone}</span>
                 </a>
             </div>
@@ -32,8 +32,8 @@ function Home_banner({ content }) {
 
                         <div className="home_banner_adress">
                             <a href='https://yandex.ru/maps/-/CDxF7Em2' target="_blank" id='head_adress_mob'>
-                                <span>г. Донецк, пр-т Мира, 15.</span>
-                                <span>БЦ «Centaur Plaza 1», 9 этаж, офис №92</span>
+                                <span>{content?.acf?.main_contacts?.h_adress_1}</span>
+                                <span>{content?.acf?.main_contacts?.h_adress_2}</span>
                             </a>
                         </div>
                     </div>

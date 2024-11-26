@@ -1,10 +1,10 @@
+import {useEffect, useState} from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
 import Home from './pages/Home.jsx';
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import WordPressApi from "./api/WordPressApi.jsx";
-import {useEffect, useState} from "react";
+
 
 const App = () => {
 
@@ -30,7 +30,6 @@ const App = () => {
         console.log('data fetching')
         return
     }
-    console.log(page[0])
 
     return (
         <Router>

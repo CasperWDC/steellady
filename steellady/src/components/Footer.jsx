@@ -2,22 +2,14 @@ import './footer.scss'
 
 import Logo from '../assets/img/logo.svg';
 
-function Footer() {
+function Footer ({ info }) {
 
-    const media = [
-        {
-            name: 'vk',
-            link: '/',
-        },
-        {
-            name: 'tg',
-            link: '/',
-        },
-        {
-            name: 'vb',
-            link: '/',
-        },
-    ]
+    if (!info) {
+        console.log('data fetching')
+        return
+    }
+
+
     return (
         <div className='footer'>
             <div className="footer_img">
@@ -35,10 +27,11 @@ function Footer() {
                             Меню
                         </div>
                         <div className='nav'>
-                            <a href="/" className='active'>Главная</a>
-                            <a href="/#about">О нас</a>
-                            <a href="/#services">Услуги</a>
-                            <a href="/#contacts">Контакты</a>
+                            {info?.acf?.main_menu.map((menu, index) => {
+                                return (
+                                    <a key={index} href={menu.link_m}>{menu.menu_title}</a>
+                                )
+                            })}
                         </div>
                     </div>
                     <div className="footer_service">
@@ -47,14 +40,11 @@ function Footer() {
                         </div>
 
                         <div className='nav'>
-                            <a href="/" className='active'>Главная</a>
-                            <a href="/#about">О нас</a>
-                            <a href="/#services">Услуги</a>
-                            <a href="/#contacts">Контакты</a>
-                            <a href="/" className='active'>Главная</a>
-                            <a href="/#about">О нас</a>
-                            <a href="/#services">Услуги</a>
-                            <a href="/#contacts">Контакты</a>
+                            {info?.acf?.service_menu.map((menu, index) => {
+                                return (
+                                    <a key={index} href={menu.s_link}>{menu.s_menu_title}</a>
+                                )
+                            })}
                         </div>
                     </div>
                     <div className="footer_contacts">
@@ -62,20 +52,21 @@ function Footer() {
                             Контакты
                         </div>
 
-                        <a href="https://yandex.ru/maps/-/CDxF7Em2" className='adress_link' target="_blank">
-                            г. Донецк, пр-т Мира, 15 БЦ «Centaur Plaza 1», 9 этаж, офис №92
+                        <a href={info?.acf?.main_contacts?.h_map_link} className='adress_link' target="_blank">
+                            {info?.acf?.main_contacts?.h_adress_1}
+                            {info?.acf?.main_contacts?.h_adress_2}
                         </a>
                         <p>
                             Телефон:
-                            <a href="tel:+7-949-501-22-20">+7-949-501-22-20</a>
+                            <a href={`tel:+${info?.acf?.main_contacts?.main_phone}`}>{info?.acf?.main_contacts?.main_phone}</a>
                         </p>
                     </div>
                 </div>
 
                 <div className="footer_legal">
-                    <p>Юридическая компания «Стальная и партнёры» (ИП Стальная Юлия Вениаминовна)</p>
-                    <p>ОГРН: 323930100103851</p>
-                    <p>ИНН: 614340111251</p>
+                    <p>{info?.acf?.legal_info?.legal_1}</p>
+                    <p>{info?.acf?.legal_info?.legal_2}</p>
+                    <p>{info?.acf?.legal_info?.legal_3}</p>
                 </div>
 
                 <div className="footer_info">
@@ -85,17 +76,20 @@ function Footer() {
                     <div className="footer_media">
                         <p className='footer_tel_mob'>
                             Телефон:
-                            <a href="tel:+7-949-501-22-20">+7-949-501-22-20</a>
+                            <a href={`tel:+${info?.acf?.main_contacts?.main_phone}`}>{info?.acf?.main_contacts?.main_phone}</a>
                         </p>
 
                         <p>Соц.сети:</p>
                         <ul className='media_links'>
-                            {media.map((madiaLink, index) => {
-                                return (
-                                    <li key={index}><a href={madiaLink.link} className={madiaLink.name}
-                                                       target='_blank'></a></li>
-                                )
-                            })}
+                            {info?.acf?.social_links &&
+                                Object.entries(info.acf.social_links).map(([platform, link], index) => {
+                                    return (
+                                        <li key={index}>
+                                            <a href={link} className={platform} target='_blank' rel='noopener noreferrer'>
+                                            </a>
+                                        </li>
+                                    );
+                                })}
                         </ul>
                     </div>
                 </div>

@@ -1,3 +1,4 @@
+import {useEffect, useState} from "react";
 import {Helmet, HelmetProvider} from 'react-helmet-async';
 import {GoogleReCaptchaProvider} from 'react-google-recaptcha-v3';
 import Home_banner from "../components/Home_banner.jsx";
@@ -9,7 +10,7 @@ import Team from "../components/Team.jsx";
 import ContactUs from "../components/ContactUs.jsx";
 import News from "../components/News.jsx";
 import WordPressApi from "../api/WordPressApi.jsx";
-import {useEffect, useState} from "react";
+
 
 
 function Home({ page_info }) {
@@ -29,22 +30,21 @@ function Home({ page_info }) {
         fetchData(api);
     }, []);
 
-    console.log(posts)
 
     return (
         <HelmetProvider>
             <Helmet>
-                <title>{page_info[0].acf.seo_title}</title>
-                <meta name="description" content={page_info[0].acf.seo_description}/>
-                <meta property="og:title" content={page_info[0].acf.seo_title}/>
-                <meta property="og:description" content={page_info[0].acf.seo_description}/>
+                <title>{page_info?.acf?.seo_title}</title>
+                <meta name="description" content={page_info?.acf?.seo_description}/>
+                <meta property="og:title" content={page_info?.acf?.seo_title}/>
+                <meta property="og:description" content={page_info?.acf?.seo_description}/>
             </Helmet>
-            <Home_banner content={page_info[0]}/>
-            <About content={page_info[0]}/>
-            <Services content={page_info[0]}/>
-            <Why content={page_info[0]}/>
-            <Reviews content={page_info[0]}/>
-            <Team content={page_info[0]}/>
+            <Home_banner content={page_info}/>
+            <About content={page_info}/>
+            <Services content={page_info}/>
+            <Why content={page_info}/>
+            <Reviews content={page_info}/>
+            <Team content={page_info}/>
             <GoogleReCaptchaProvider
                 reCaptchaKey="6LcOZX4qAAAAADJMIKPNJNU_4CFLM3ztGpKBadz5"
                 useRecaptchaNet="false"
@@ -63,7 +63,7 @@ function Home({ page_info }) {
                     }
                 }}
             >
-                <ContactUs content={page_info[0]}/>
+                <ContactUs content={page_info}/>
             </GoogleReCaptchaProvider>
             <News posts={posts}/>
         </HelmetProvider>

@@ -56,7 +56,7 @@ function Header({ info }) {
                         <img src={Logo} alt=""/>
                     </a>
                     <div className="header_contacts">
-                        <a href='tel:+79495012220' className="header_contact_item phon" id='head_phone_desctop'>
+                        <a href={`tel:${info?.acf?.main_contacts?.main_phone}`} className="header_contact_item phon" id='head_phone_desctop'>
                             <span className='header_contact_title'>Мобильный</span>
                             <span>{info?.acf?.main_contacts?.main_phone}</span>
                         </a>

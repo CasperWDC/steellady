@@ -1,7 +1,8 @@
-import { useState, ChangeEvent, FormEvent, KeyboardEvent } from 'react';
+import {useState, ChangeEvent, FormEvent, KeyboardEvent, useEffect} from 'react';
 import "./contactUs.scss";
 import emailjs from '@emailjs/browser';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function ContactUs ({ content }) {
 
@@ -9,6 +10,10 @@ function ContactUs ({ content }) {
         console.log('data fetching')
         return
     }
+
+    useEffect(() => {
+        AOS.init();
+    }, [])
 
     const email = content?.acf?.email;
     const [isCopied, setIsCopied] = useState(false);

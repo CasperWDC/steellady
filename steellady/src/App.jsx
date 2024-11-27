@@ -4,6 +4,10 @@ import Home from './pages/Home.jsx';
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import WordPressApi from "./api/WordPressApi.jsx";
+import ServicePage from "./pages/ServicePage.jsx";
+import BlogPage from "./pages/BlogPage.jsx";
+import PostPage from "./pages/PostPage.jsx";
+import Page404 from "./components/Page404.jsx";
 
 
 const App = () => {
@@ -33,12 +37,17 @@ const App = () => {
 
     return (
         <Router>
-            <Header info={page[0]} />
+            <Header info={page} />
             <Routes>
                 <Route path="/" element={<Home page_info={page}/>} />
-                <Route path="/about" element={<Home />} />
+                <Route path="/:slug" element={<ServicePage main_info={page} />} />
+                <Route path="/blog" element={<BlogPage main_info={page} />} />
+                <Route path="/blog/:slug" element={<PostPage main_info={page} />} />
+
+                <Route path="*" element={<Page404 />} />
+                <Route path="404" element={<Page404 />} />
             </Routes>
-            <Footer info={page[0]} />
+            <Footer info={page} />
         </Router>
     );
 };

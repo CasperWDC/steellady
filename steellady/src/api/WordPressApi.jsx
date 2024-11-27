@@ -18,6 +18,13 @@ class WordPressApi {
     async getPageData(id) {
         try {
             const response = await this.client.get(`/pages/${id}`);
+
+            if (response.data.length > 0) {
+                return response.data[0];
+            } else {
+                throw new Error('Страница не найдена');
+            }
+
             return response.data;
         } catch (error) {
             console.error("Error fetching page data:", error);

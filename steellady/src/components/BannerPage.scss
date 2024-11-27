@@ -1,0 +1,20 @@
+.page_banner {
+  &_container {
+    background: none;
+  }
+
+  &_title {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+
+    h1 {
+      padding-top: 0;
+      margin-top: 70px;
+      &:before {
+        top: calc(50% - 22px);
+        left: -125px;
+      }
+    }
+  }
+}

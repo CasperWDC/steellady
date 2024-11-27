@@ -1,0 +1,32 @@
+@use '../../assets/scss/_variables';
+
+.description {
+  margin-top: 0;
+  padding: 100px 0;
+  background: #fff;
+
+  @media (max-width: 767px) {
+    padding: 80px 0;
+  }
+
+  &_content {
+    display: flex;
+    gap: 80px;
+
+    img {
+      max-height: 250px;
+      width: auto;
+    }
+  }
+  &_text {
+    color: variables.$textColorDark;
+
+    p {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 144%;
+      letter-spacing: 0.02em;
+      margin-bottom: 20px;
+    }
+  }
+}

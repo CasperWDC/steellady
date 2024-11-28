@@ -11,10 +11,30 @@
     h1 {
       padding-top: 0;
       margin-top: 70px;
+
+      @media (max-width: 991px) {
+        padding-top: 59px;
+        margin-top: 0;
+      }
       &:before {
         top: calc(50% - 22px);
         left: -125px;
+
+        @media (max-width: 991px) {
+          display: block;
+          width: 60px;
+          height: 44px;
+          background-size: contain;
+          background: url("../assets/img/head_item_mob.svg");
+          left: calc(50% - 30px);
+          top: 0;
+        }
       }
+    }
+  }
+  .home_banner_content {
+    @media (max-width: 767px) {
+      padding-bottom: 64px;
     }
   }
 }

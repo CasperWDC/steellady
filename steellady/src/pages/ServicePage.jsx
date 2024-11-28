@@ -7,6 +7,8 @@ import ContactUs from "../components/ContactUs.jsx";
 import BannerPage from "../components/BannerPage.jsx";
 import Description from "../components/pageBlocks/Description.jsx";
 import TagsCloud from "../components/pageBlocks/TagsCloud.jsx";
+import SectionWhy from "../components/pageBlocks/SectionWhy.jsx";
+import Faq from "../components/pageBlocks/Faq.jsx";
 
 
 
@@ -37,7 +39,7 @@ function ServicePage ({ main_info }) {
     }, [slug, navigate]);
 
     if (!pageInfo) {
-        return
+        return <div className='loading'></div>
     }
 
     const ConditionalTagsCloud = () => {
@@ -70,6 +72,8 @@ function ServicePage ({ main_info }) {
 
             <ConditionalTagsCloud />
 
+            <SectionWhy content={pageInfo} />
+
             <GoogleReCaptchaProvider
                 reCaptchaKey="6LcOZX4qAAAAADJMIKPNJNU_4CFLM3ztGpKBadz5"
                 useRecaptchaNet="false"
@@ -90,6 +94,8 @@ function ServicePage ({ main_info }) {
             >
                 <ContactUs content={main_info}/>
             </GoogleReCaptchaProvider>
+
+            <Faq content={pageInfo} />
 
         </HelmetProvider>
     )

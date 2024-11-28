@@ -10,7 +10,7 @@ function Description({content}) {
 
     console.log(content)
     return (
-        <section className='description' id='description'>
+        <section className='description section_wgite' id='description'>
             <div className="container">
                 <div className="description_content">
                     <div className="description_img">

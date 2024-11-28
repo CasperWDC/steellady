@@ -4,7 +4,6 @@ import './BannerPage.scss'
 function BannerPage ({ content, main }) {
 
     if (!content) {
-        console.log('data fetching')
         return
     }
 

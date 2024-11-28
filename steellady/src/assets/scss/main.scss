@@ -143,6 +143,21 @@ section {
   @media (max-width: 767px) {
     margin-top: 80px;
   }
+
+  &.section_wgite {
+    margin-top: 0;
+    padding: 100px 0;
+    background: #fff;
+    color: variables.$textColorDark;
+
+    @media (max-width: 767px) {
+      padding: 80px 0;
+    }
+
+    h2 {
+      color: variables.$textColorDark;
+    }
+  }
 }
 p {
   margin: 0;
@@ -280,4 +295,8 @@ h1 {
     line-height: 107%;
   }
 
+}
+
+.loading {
+  height: 100dvh;
 }

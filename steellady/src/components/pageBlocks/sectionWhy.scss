@@ -1,0 +1,39 @@
+@use '../../assets/scss/_variables';
+
+.whySection {
+  &_container {
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
+    gap: 20px 30px;
+
+    @media (max-width: 991px) {
+      grid-template-columns: repeat(2 , 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 767px) {
+      grid-template-columns: repeat(1 , 1fr);
+      gap: 16px;
+    }
+  }
+  &_item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 40px;
+    background: #fbfbfb;
+    border: 2px solid #d1b06b;
+    font-size: 26px;
+    line-height: 115%;
+    letter-spacing: 0.02em;
+    text-align: center;
+    font-family: variables.$secondFont;
+    min-height: 140px;
+
+    @media (max-width: 767px) {
+      padding: 19px 25px;
+      min-height: max-content;
+      font-size: 20px;
+      line-height: 110%;
+    }
+  }
+}

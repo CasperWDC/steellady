@@ -2,7 +2,7 @@ import './sectionWhy.scss'
 
 function SectionWhy ({ content }) {
 
-    if (!content || content?.acf?.why_visible == false) {
+    if (!content || content?.acf?.why_visible == false || content?.acf?.add_advantages == false) {
         console.log('data fetching')
         return
     }

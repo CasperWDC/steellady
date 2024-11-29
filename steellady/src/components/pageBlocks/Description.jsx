@@ -3,7 +3,7 @@ import './description.scss'
 
 function Description({content}) {
 
-    if (!content) {
+    if (!content || content?.acf?.service_description?.service_text.length < 1) {
         console.log('data fetching')
         return
     }

@@ -3,7 +3,7 @@ import './Faq.scss'
 
 function Faq ({ content }) {
 
-    if (!content || content?.acf?.faq_visible == false) {
+    if (!content || content?.acf?.faq_visible == false || content?.acf?.add_faq == false) {
         console.log('data fetching')
         return
     }
@@ -24,10 +24,10 @@ function Faq ({ content }) {
                         return (
                             <div key={index} className={`faqSection_item ${activeIndex === index ? "active" : ""}`} itemType="https://schema.org/Question">
                                 <div className="faqSection_question" itemProp="name" onClick={() => handleQuestionClick(index)}>
-                                    {faq.faq_q}
+                                    {faq?.faq_q}
                                 </div>
                                 <div className="faqSection_answer" itemScope="" itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                                    {faq.faq_a}
+                                    {faq?.faq_a}
                                 </div>
                             </div>
                         )

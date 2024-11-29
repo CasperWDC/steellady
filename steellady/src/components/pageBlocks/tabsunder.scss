@@ -1,53 +1,54 @@
-@use '../assets/scss/_variables';
+@use '../../assets/scss/_variables';
 
-.services {
+.tabsunder {
+  margin-top: 0;
+  padding: 100px 0;
+  background: #1F2732;
 
   @media (max-width: 767px) {
     padding: 80px 0;
-    background: #1f2732;
   }
 
-  h2 {
-    text-align: center;
-  }
-
-  .border_top {
-    border-top: 1px solid #4e555f;
-    padding-top: 70px;
-
+  .container {
     @media (max-width: 767px) {
-      border-top: none;
-      padding-top: 0;
+      padding-left: 0;
+      padding-right: 0;
     }
-
   }
 
   &_container {
     display: grid;
-    gap: 15px;
+    gap: 30px 15px;
     grid-template-columns: repeat(2, 1fr);
     
-    @media (max-width: 767px) {
+    @media (max-width: 991px) {
       grid-template-columns: repeat(1, 1fr);
-      gap: 23px;
+      gap: 20px;
     }
   }
 
   &_item {
-    background: #1f2732;
+    background: #2E3947;
     padding: 25px 50px;
     transition: 0.2s ease;
     border-radius: 2px;
 
-    @media (max-width: 767px) {
-      padding: 0 10px;
+    &.tabs_only {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      min-height: 100px;
+
+      @media (max-width: 767px) {
+        min-height: auto;
+        padding: 23px 20px 14px 20px;
+      }
+
     }
 
-    &:hover {
-      background: #2e3947;
-    }
-
     @media (max-width: 767px) {
+      padding: 14px 20px 14px 20px;
+
       &:last-of-type {
         .services_title {
           padding-bottom: 0;
@@ -62,8 +63,7 @@
     display: flex;
     gap: 40px;
     align-items: center;
-    padding-bottom: 23px;
-    border-bottom: 1px solid #4e555f;
+    padding-bottom: 0;
 
     @media (max-width: 767px) {
       gap: 25px;
@@ -89,11 +89,24 @@
     line-height: 175%;
     letter-spacing: 0.03em;
     color: variables.$contentColor;
-
-    @media (max-width: 767px) {
-      display: none;
-    }
   }
 
+  .tab_list {
+    margin-left: 40px;
+    margin-top: 15px;
+    margin-bottom: 0;
 
+    @media (max-width: 767px) {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
+    li {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 137%;
+      letter-spacing: 0.03em;
+      padding-top: 0;
+    }
+  }
 }

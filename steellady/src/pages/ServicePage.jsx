@@ -9,6 +9,8 @@ import Description from "../components/pageBlocks/Description.jsx";
 import TagsCloud from "../components/pageBlocks/TagsCloud.jsx";
 import SectionWhy from "../components/pageBlocks/SectionWhy.jsx";
 import Faq from "../components/pageBlocks/Faq.jsx";
+import TabsUnder from "../components/pageBlocks/TabsUnder.jsx";
+import TabsInside from "../components/pageBlocks/TabsInside.jsx";
 
 
 
@@ -49,9 +51,9 @@ function ServicePage ({ main_info }) {
             case 'cloud':
                 return <TagsCloud content={pageInfo} main={main_info}/>;
             case 'tab_1':
-                return <TagsCloud />;
+                return <TabsUnder content={pageInfo} />;
             case 'tab_2':
-                return <TagsCloud />;
+                return <TabsInside content={pageInfo} />;
             default:
                 return null;
         }

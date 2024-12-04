@@ -71,7 +71,7 @@ function Footer ({ info }) {
 
                 <div className="footer_info">
                     <div className="footer_copyright">
-                        ЮК “Стальная и Партнёры” | Разработка сайта <a href="/">MMelnyk</a>
+                        ЮК “Стальная и Партнёры” | Разработка сайта <a href="https://t.me/Nick_Dev" target="_blank">HI-Web</a>
                     </div>
                     <div className="footer_media">
                         <p className='footer_tel_mob'>

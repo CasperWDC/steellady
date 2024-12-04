@@ -7,7 +7,6 @@ function BannerPage ({ content, main }) {
         return
     }
 
-    console.log(content)
     return (
         <div className='home_banner page_banner'>
             <div className="home_banner_contact">
@@ -17,7 +16,7 @@ function BannerPage ({ content, main }) {
             </div>
             <div className="container">
                     <div className="home_banner_content page_banner_title">
-                        <h1>{content?.title?.rendered}</h1>
+                        <h1>{content?.title}</h1>
                     </div>
             </div>
         </div>

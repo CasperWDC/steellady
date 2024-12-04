@@ -19,12 +19,13 @@ function Home({ page_info }) {
 
     const fetchData = async (api) => {
         try {
-            const data = await api.getPosts(3, 1);
+            const data = await api.getAllPostsFromJson();
             setPosts(data);
         } catch (err) {
             console.log(err)
         }
     };
+
 
     useEffect(() => {
         fetchData(api);

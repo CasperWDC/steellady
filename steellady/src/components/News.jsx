@@ -30,7 +30,7 @@ function News({ posts }) {
                                 </div>
                                 <div className="new_content">
                                     <p className='new_title'>{post?.title?.rendered}</p>
-                                    <div className='new_prev' dangerouslySetInnerHTML={{__html: post?.excerpt?.rendered}}>
+                                    <div className='new_prev' dangerouslySetInnerHTML={{__html: post?.excerpt}}>
                                     </div>
                                     <a href={`/blog/${post?.slug}`} className='new_link'>Подробнее</a>
                                 </div>

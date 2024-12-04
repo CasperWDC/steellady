@@ -20,13 +20,13 @@ function ServicePage ({ main_info }) {
     const navigate = useNavigate(); // Для перенаправления на другую страницу
     const [pageInfo, setPageInfo] = useState(null);
 
-    const pageId = '?slug=' + slug + '&acf_format=standard';
-
+    const pageId = slug;
+    console.log(slug)
     useEffect(() => {
         const fetchPageData = async () => {
             try {
                 const api = new WordPressApi();
-                const data = await api.getPageData(pageId);
+                const data = await api.getPageDataFromJson(pageId, "slug");
                 if (!data) {
                     navigate('/404');
                 } else {

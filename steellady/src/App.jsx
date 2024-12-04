@@ -13,18 +13,19 @@ import Page404 from "./components/Page404.jsx";
 const App = () => {
 
     const api = new WordPressApi();
-    const pageId = '?slug=home&acf_format=standard';
+    const pageId = 'home';
     const [page, setPage] = useState(null)
 
 
     const fetchData = async (pageId, api) => {
         try {
-            const data = await api.getPageData(pageId);
+            const data = await api.getPageDataFromJson(pageId, "slug");
             setPage(data);
         } catch (err) {
             console.log(err)
         }
     };
+
 
     useEffect(() => {
         fetchData(pageId, api);

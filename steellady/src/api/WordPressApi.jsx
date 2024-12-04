@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const API_BASE_URL = "http://localhost:8221/api/wp-json/wp/v2";
+const LOCAL_JSON_URL = "../../public/full_data.json";
 
 class WordPressApi {
     constructor(baseUrl = API_BASE_URL) {
@@ -11,59 +12,67 @@ class WordPressApi {
     }
 
     /**
-     * Получение данных страницы по ID
-     * @param {number} id - ID страницы
+     * Загрузка данных из локального JSON-файла
+     * @returns {Promise<any>} - Данные из JSON-файла
+     */
+    async loadLocalData() {
+        try {
+            const response = await axios.get(LOCAL_JSON_URL); // Используем прямой запрос к файлу
+            return response.data;
+        } catch (error) {
+            console.error("Error loading local data:", error);
+            throw error;
+        }
+    }
+
+    /**
+     * Получение данных страницы по ID или slug из JSON
+     * @param {number|string} value - ID или slug страницы
+     * @param {string} key - Ключ для поиска ("id" или "slug")
      * @returns {Promise<any>} - Данные страницы
      */
-    async getPageData(id) {
-        try {
-            const response = await this.client.get(`/pages/${id}`);
+    async getPageDataFromJson(value, key = 'id') {
+        const data = await this.loadLocalData();
+        const page = data.pages.find(page => page[key] === value);
 
-            if (response.data.length > 0) {
-                return response.data[0];
-            } else {
-                throw new Error('Страница не найдена');
-            }
-
-            return response.data;
-        } catch (error) {
-            console.error("Error fetching page data:", error);
-            throw error;
+        if (!page) {
+            throw new Error(`Страница с ${key} "${value}" не найдена`);
         }
+        return page;
     }
 
     /**
-     * Получение списка всех постов
-     * @param {number} perPage - Количество постов на странице
-     * @param {number} page - Номер страницы
-     * @returns {Promise<any[]>} - Список постов
-     */
-    async getPosts(perPage = 10, page = 1) {
-        try {
-            const response = await this.client.get("/posts", {
-                params: { per_page: perPage, page },
-            });
-            return response.data;
-        } catch (error) {
-            console.error("Error fetching posts:", error);
-            throw error;
-        }
-    }
-
-    /**
-     * Получение данных записи (поста) по ID
+     * Получение данных записи (поста) по ID из JSON
      * @param {number} id - ID записи
      * @returns {Promise<any>} - Данные записи
      */
-    async getPostData(id) {
-        try {
-            const response = await this.client.get(`/posts/${id}`);
-            return response.data;
-        } catch (error) {
-            console.error("Error fetching post data:", error);
-            throw error;
+    async getPostDataFromJson(id) {
+        const data = await this.loadLocalData();
+        const post = data.posts.find(post => post.id === id);
+        if (!post) {
+            throw new Error(`Пост с ID ${id} не найден`);
         }
+        return post;
     }
+
+    /**
+     * Получение списка всех записей из JSON
+     * @returns {Promise<any[]>} - Список всех записей
+     */
+    async getAllPostsFromJson() {
+        const data = await this.loadLocalData();
+        return data.posts || [];
+    }
+
+    /**
+     * Получение всех категорий из JSON
+     * @returns {Promise<any[]>} - Список всех категорий
+     */
+    async getAllCategoriesFromJson() {
+        const data = await this.loadLocalData();
+        return data.categories || [];
+    }
+
 }
 
 export default WordPressApi;

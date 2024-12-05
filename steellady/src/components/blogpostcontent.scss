@@ -1,6 +1,6 @@
 @use '../assets/scss/_variables';
 
-.blog_page {
+.post_page {
   background: #fff;
   color: variables.$textColorDark;
   padding: 100px 0;
@@ -20,97 +20,36 @@
   }
 
   &_category {
-    width: 280px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    max-width: 280px;
 
     @media (max-width: 991px) {
       width: 100%;
     }
 
-    .MuiInputBase-root {
-      width: 100%;
-      border-radius: 2px;
-    }
-    .category_select {
-      color: variables.$textColorAcсent;
-      background: variables.$mainBG;
-
-      .custom-arrow-icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: 20px;
-        transition: 0.3s ease;
-      }
-
-      fieldset {
-        border: none !important;
-        border-bottom: 1px solid #4E555F !important;
-      }
-    }
-
-    #category_select[aria-expanded='true'] + input + .custom-arrow-icon {
-      transform: rotate(180deg);
-    }
   }
 
-  &_list {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 80px;
 
-    @media (max-width: 767px) {
-      gap: 60px;
-    }
-  }
-
-  &_navigation {
+  &_back {
     background: variables.$mainBG;
     color: variables.$contentColor;
-    padding: 25px 0;
+    padding: 18px 25px;
     border-radius: 2px;
+    width: 280px;
+    display: flex;
+    gap: 25px;
+    align-items: center;
 
-    &_title {
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 137%;
-      letter-spacing: 0.03em;
-      padding: 0 30px 15px 30px;
-      border-bottom: 1px solid #4e555f;
-      margin-bottom: 15px;
+    svg {
+      transform: rotate(90deg);
     }
 
-    button {
-      width: 100%;
-      display: block;
-      background: transparent;
-      cursor: pointer;
-      border: none;
-      outline: none;
-      color: variables.$contentColor;
-      transition: 0.2s ease;
-      text-align: left;
-      padding-left: 30px;
-      padding-right: 30px;
-
-      &:not(:last-child) {
-        padding-bottom: 25px;
-      }
-
-      &:hover, &.active {
-        color: variables.$textColorAcсent;
-      }
-    }
   }
 
   &_post {
     &_img {
       float: left;
       padding-right: 15px;
-      margin-top: -112px;
+      margin-top: -64px;
       @media (max-width: 991px) {
         margin-top: 0;
       }
@@ -168,7 +107,6 @@
       font-family: variables.$secondFont;
       margin-bottom: 15px;
       margin-left: 315px;
-      display: block;
 
       @media (max-width: 991px) {
         margin-left: 0;
@@ -220,21 +158,6 @@
           }
         }
       }
-    }
-  }
-}
-
-.select_menu {
-  background-color: variables.$mainBG !important;
-  border-radius: 0 !important;
-  left: 15px !important;
-
-  li {
-    color: variables.$contentColor;
-
-    &.Mui-selected {
-      background-color: transparent;
-      color: variables.$textColorAcсent;
     }
   }
 }

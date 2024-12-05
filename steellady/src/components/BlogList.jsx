@@ -1,7 +1,9 @@
 import {useEffect, useState} from "react";
 import {useNavigate, useLocation} from 'react-router-dom';
-import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
+import {MenuItem, Select} from "@mui/material";
 import "./bloglist.scss";
+import ScrollTop from "./ScrollTop.jsx";
+import CustomArrow from "./CustomArrow.jsx";
 
 function BlogList({posts, categories}) {
 
@@ -41,6 +43,7 @@ function BlogList({posts, categories}) {
         setSortedPosts(filteredPosts);
     }, [activeTab, posts]);
 
+
     const handleTabClick = (tab) => {
         setActiveTab(tab);
         navigate({search: `?category=${tab}`});
@@ -58,16 +61,17 @@ function BlogList({posts, categories}) {
 
                     <div className="blog_page_category">
                         {isMobile ? (
-                            <FormControl>
+                            <div>
                                 <Select
                                     labelId="blog_page_label"
-                                    id="category-select"
+                                    id="category_select"
                                     value={activeTab}
-                                    label="Категории"
                                     onChange={handleSelectChange}
                                     MenuProps={{
-                                        classes: {paper: 'select-menu'}
+                                        classes: {paper: 'select_menu'}
                                     }}
+                                    className="category_select"
+                                    IconComponent={CustomArrow}
                                 >
                                     <MenuItem value={'all'}>Все статьи</MenuItem>
                                     {categories.filter(category => category?.count >= 1).map((category, index) => {
@@ -76,7 +80,7 @@ function BlogList({posts, categories}) {
                                         )
                                     })}
                                 </Select>
-                            </FormControl>
+                            </div>
                         ) : (
                             <div className='blog_page_navigation'>
                                 <p className="blog_page_navigation_title">
@@ -98,6 +102,9 @@ function BlogList({posts, categories}) {
                                 })}
                             </div>
                         )}
+
+                        <ScrollTop />
+
                     </div>
 
                     <div className="blog_page_list">
@@ -109,13 +116,13 @@ function BlogList({posts, categories}) {
                                         <div className="blog_page_post_category">
                                             {post?.categories.map((category, index) => {
                                                 return (
-                                                    <span>{category?.name}</span>
+                                                    <span key={index}>{category?.name}</span>
                                                 )
                                             })}
                                         </div>
                                     </div>
                                     <div className="blog_page_post_content">
-                                        <p className='blog_page_post_title'>{post?.title}</p>
+                                        <a href={`/blog/${post?.slug}`} className='blog_page_post_title'>{post?.title}</a>
                                         <div className="blog_page_post_img">
                                             <span style={{background: `url(${post?.featured_image_url})`}}></span>
                                         </div>

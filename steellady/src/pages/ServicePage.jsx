@@ -21,7 +21,7 @@ function ServicePage ({ main_info }) {
     const [pageInfo, setPageInfo] = useState(null);
 
     const pageId = slug;
-    console.log(slug)
+
     useEffect(() => {
         const fetchPageData = async () => {
             try {

@@ -46,11 +46,11 @@ class WordPressApi {
      * @param {number} id - ID записи
      * @returns {Promise<any>} - Данные записи
      */
-    async getPostDataFromJson(id) {
+    async getPostDataFromJson(value, key = 'id') {
         const data = await this.loadLocalData();
-        const post = data.posts.find(post => post.id === id);
+        const post = data.posts.find(post => post[key] === value);
         if (!post) {
-            throw new Error(`Пост с ID ${id} не найден`);
+            throw new Error(`Пост с ID ${value} не найден`);
         }
         return post;
     }

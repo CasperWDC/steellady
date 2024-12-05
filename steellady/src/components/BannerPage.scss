@@ -11,10 +11,12 @@
     h1 {
       padding-top: 0;
       margin-top: 70px;
+      max-width: 74%;
 
       @media (max-width: 991px) {
         padding-top: 59px;
         margin-top: 0;
+        max-width: 90%;
       }
       &:before {
         top: calc(50% - 22px);

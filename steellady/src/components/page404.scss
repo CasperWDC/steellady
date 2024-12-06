@@ -1,0 +1,32 @@
+.page404 {
+  padding-top: 250px;
+  padding-bottom: 100px;
+
+  @media (max-width: 767px) {
+    padding-top: 100px;
+    padding-bottom: 80px;
+  }
+
+  h1 {
+    font-size: 150px;
+    margin-top: 0;
+    margin-bottom: 10px;
+
+    @media (max-width: 767px) {
+      font-size: 100px;
+    }
+  }
+
+  p {
+    font-size: 28px;
+  }
+
+    a {
+      display: block;
+      margin: 50px 0;
+      transition: 0.2s ease;
+      &:hover {
+        color: #D1B06B;
+      }
+    }
+}

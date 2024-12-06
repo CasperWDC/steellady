@@ -16,13 +16,13 @@ function Services({ content }) {
                 <div className="services_container">
                     {content?.acf?.services.map((service, index) => {
                         return (
-                            <a key={index} href={service.s_page_link} className="services_item">
+                            <a key={index} href={service?.s_page_link} className="services_item">
                                 <div className="services_title">
-                                    <img src={service.s_icon} alt=""/>
-                                    <p>{service.s_title}</p>
+                                    <img src={service?.s_icon} alt=""/>
+                                    <p>{service?.s_title}</p>
                                 </div>
                                 <p className='services_content'>
-                                    {service.s_text}
+                                    {service?.s_text}
                                 </p>
                             </a>
                         )

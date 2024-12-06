@@ -1,10 +1,10 @@
-import {useState, ChangeEvent, FormEvent, KeyboardEvent, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import "./contactUs.scss";
 import emailjs from '@emailjs/browser';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-function ContactUs ({ content }) {
+function ContactUs({content, custom}) {
 
     if (!content || content?.acf?.c_visible == 'false') {
         console.log('data fetching')
@@ -49,15 +49,15 @@ function ContactUs ({ content }) {
 
     const handleChange = (event) => {
         setSuccessMessage("");
-        const { name, value, type } = event.target;
+        const {name, value, type} = event.target;
         const isValid = validateField(value, type);
-        setForm((prevForm) => ({ ...prevForm, [name]: value }));
-        setErrors((prevErrors) => ({ ...prevErrors, [name]: !isValid }));
+        setForm((prevForm) => ({...prevForm, [name]: value}));
+        setErrors((prevErrors) => ({...prevErrors, [name]: !isValid}));
     };
 
     const handleKeyDown = (event) => {
         setSuccessMessage("");
-        const { key, type, ctrlKey, metaKey } = event;
+        const {key, type, ctrlKey, metaKey} = event;
         const pattern = patterns[type]?.keyPattern;
 
         if (
@@ -121,24 +121,26 @@ function ContactUs ({ content }) {
                     subject: "Новая заявка с сайта Jurist-Stalnaya.ru",
                     message: `Имя: ${form.name}\nКонтакт: ${form.contact}\nСообщение: ${form.message}`,
                 },
-                { publicKey: "8VMs9CNZgMrnhOttL" }
+                {publicKey: "8VMs9CNZgMrnhOttL"}
             );
 
             if (loader) loader.style.display = "none";
             setSuccessMessage("Спасибо за запрос, мы свяжемся с Вами!");
-            setForm({ name: "", contact: "", message: "" });
+            setForm({name: "", contact: "", message: ""});
             setErrors({});
         } catch (error) {
             const loader = document.querySelector(".loader");
             if (loader) loader.style.display = "none";
-            setErrors({ form: "Что-то пошло не так, письмо не отправлено" });
+            setErrors({form: "Что-то пошло не так, письмо не отправлено"});
         }
     };
 
     return (
         <section className='contactUs' id='contacts'>
             <div className="container">
-                <h2 className='psuedo_center'>{content?.acf?.c_title}</h2>
+                <h2 className='psuedo_center'>
+                    {custom ? custom : content?.acf?.c_title}
+                </h2>
                 <div className="contactUs_container">
                     <div className="contactUs_info" data-aos="fade-right">
                         <div className="contactUs_item schedule">
@@ -149,7 +151,8 @@ function ContactUs ({ content }) {
 
                         <div className="contactUs_item tel">
                             <a href={`tel:${content?.acf?.phons?.phon_f}`}>{content?.acf?.phons?.phon_f} (Viber)</a>
-                            <a href={`tel:${content?.acf?.phons?.phon_s}`}>{content?.acf?.phons?.phon_s} (Telegram, WhatsApp)</a>
+                            <a href={`tel:${content?.acf?.phons?.phon_s}`}>{content?.acf?.phons?.phon_s} (Telegram,
+                                WhatsApp)</a>
                         </div>
 
                         <div className="contactUs_item mail">
@@ -176,7 +179,7 @@ function ContactUs ({ content }) {
                                 <p className='required'>Ваше имя*</p>
                                 <input
                                     type="text"
-                                    value={form.name}
+                                    value={form?.name}
                                     name="name"
                                     onChange={handleChange}
                                     onKeyDown={handleKeyDown}
@@ -189,7 +192,7 @@ function ContactUs ({ content }) {
                                 <input
                                     type="tel"
                                     name="contact"
-                                    value={form.contact}
+                                    value={form?.contact}
                                     onChange={handleChange}
                                     onKeyDown={handleKeyDown}
                                     className={errors.contact ? 'error' : ''}
@@ -200,7 +203,7 @@ function ContactUs ({ content }) {
                                 <p>Ваш вопрос:</p>
                                 <textarea
                                     rows={4}
-                                    value={form.message}
+                                    value={form?.message}
                                     name="message"
                                     onChange={handleChange}
                                     onKeyDown={handleKeyDown}

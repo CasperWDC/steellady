@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import WordPressApi from "../api/WordPressApi.jsx";
 import BannerPage from "../components/BannerPage.jsx";
 import BlogPostContent from "../components/BlogPostContent.jsx";
+import ContactUs from "../components/ContactUs.jsx";
 
 
 
@@ -48,6 +49,9 @@ function PostPage({ main_info }) {
 
             <BlogPostContent post={pageInfo}/>
 
+            {pageInfo?.acf?.contact_visible === true && (
+                <ContactUs content={main_info} custom={pageInfo?.acf?.contact_title} />
+            )}
         </HelmetProvider>
     )
 }

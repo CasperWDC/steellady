@@ -12,8 +12,8 @@ function Home_banner({ content }) {
     return (
         <div className='home_banner'>
             <div className="home_banner_contact">
-                <a href={`tel:${content.acf.main_contacts.main_phone}`} className="header_contact_item phon phon_mobe" id='head_phone_mob'>
-                    <span>{content.acf.main_contacts.main_phone}</span>
+                <a href={`tel:${content?.acf?.main_contacts?.main_phone}`} className="header_contact_item phon phon_mobe" id='head_phone_mob'>
+                    <span>{content?.acf?.main_contacts?.main_phone}</span>
                 </a>
             </div>
             <div className="container">
@@ -21,9 +21,9 @@ function Home_banner({ content }) {
 
 
                     <div className="home_banner_content">
-                        <h1>{content.acf.title}</h1>
+                        <h1>{content?.acf?.title}</h1>
                         <p className='subtitle'>
-                            {content.acf.subtitle}
+                            {content?.acf?.subtitle}
                         </p>
 
                         <a href="#contacts" className='main_cta'>

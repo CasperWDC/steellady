@@ -1,6 +1,3 @@
-import {useEffect, useState} from "react";
-import {useNavigate, useLocation} from 'react-router-dom';
-import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 import "./blogpostcontent.scss";
 
 function BlogPostContent({post}) {

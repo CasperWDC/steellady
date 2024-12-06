@@ -39,11 +39,11 @@ function Team ({ content }) {
                         {content?.acf?.team.map((team, index) => {
                             return (
                                 <SplideSlide className='team_slider' key={index}>
-                                    <div className="team_photo" style={{ background: `url(${team.t_img})` }}>
+                                    <div className="team_photo" style={{ background: `url(${team?.t_img})` }}>
                                     </div>
                                     <div className="team_content">
-                                        <p className='team_name'>{team.t_name}</p>
-                                        <p className='team_status'>{team.t_position}</p>
+                                        <p className='team_name'>{team?.t_name}</p>
+                                        <p className='team_status'>{team?.t_position}</p>
                                     </div>
                                 </SplideSlide>
                             )

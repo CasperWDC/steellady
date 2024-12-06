@@ -29,7 +29,7 @@ function Footer ({ info }) {
                         <div className='nav'>
                             {info?.acf?.main_menu.map((menu, index) => {
                                 return (
-                                    <a key={index} href={menu.link_m}>{menu.menu_title}</a>
+                                    <a key={index} href={menu?.link_m}>{menu?.menu_title}</a>
                                 )
                             })}
                         </div>
@@ -42,7 +42,7 @@ function Footer ({ info }) {
                         <div className='nav'>
                             {info?.acf?.service_menu.map((menu, index) => {
                                 return (
-                                    <a key={index} href={menu.s_link}>{menu.s_menu_title}</a>
+                                    <a key={index} href={menu?.s_link}>{menu?.s_menu_title}</a>
                                 )
                             })}
                         </div>

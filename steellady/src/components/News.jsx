@@ -1,10 +1,5 @@
 import "./news.scss";
 
-
-import Rev1 from '../assets/img/new.png';
-
-
-
 function News({ posts }) {
 
     if (!posts) {

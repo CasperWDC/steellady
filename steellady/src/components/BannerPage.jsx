@@ -10,8 +10,8 @@ function BannerPage ({ content, main }) {
     return (
         <div className='home_banner page_banner'>
             <div className="home_banner_contact">
-                <a href={`tel:${main?.acf?.main_contacts.main_phone}`} className="header_contact_item phon phon_mobe" id='head_phone_mob'>
-                    <span>{main?.acf?.main_contacts.main_phone}</span>
+                <a href={`tel:${main?.acf?.main_contacts?.main_phone}`} className="header_contact_item phon phon_mobe" id='head_phone_mob'>
+                    <span>{main?.acf?.main_contacts?.main_phone}</span>
                 </a>
             </div>
             <div className="container">

@@ -1,9 +1,51 @@
 @use '../assets/scss/_variables';
 
 .home_banner {
-  background: url("../assets/img/home_bg.jpg") no-repeat bottom;
+  background: url("../assets/img/home_bg2.jpg") no-repeat center;
   background-size: cover;
   padding-top: 270px;
+
+  &:not(.page_banner) {
+    min-height: max-content;
+    height: 100dvh;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    padding-top: 214px;
+
+    .container {
+      width: 100%;
+    }
+
+    .home_banner_container {
+      padding-top: 70px;
+    }
+    .home_banner_content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 40px;
+
+
+      @media (max-width: 767px) {
+        align-items: center;
+        gap: 0;
+      }
+
+      h1 {
+        margin-bottom: 0;
+      }
+
+      .subtitle {
+        margin-bottom: 0;
+      }
+      .main_cta {
+        width: max-content;
+      }
+    }
+
+  }
+
 
   @media (max-width: 991px) {
     padding-top: 190px;
@@ -11,6 +53,7 @@
 
   @media (max-width: 767px) {
     padding-top: 79px;
+    height: auto;
   }
 
   &_container {

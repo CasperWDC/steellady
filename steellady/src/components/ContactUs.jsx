@@ -3,6 +3,7 @@ import "./contactUs.scss";
 import emailjs from '@emailjs/browser';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import {MenuItem} from "@mui/material";
 
 function ContactUs({content, custom}) {
 
@@ -150,14 +151,26 @@ function ContactUs({content, custom}) {
                         </div>
 
                         <div className="contactUs_item tel">
-                            <a href={`tel:${content?.acf?.phons?.phon_f}`}>{content?.acf?.phons?.phon_f} (Viber)</a>
-                            <a href={`tel:${content?.acf?.phons?.phon_s}`}>{content?.acf?.phons?.phon_s} (Telegram,
-                                WhatsApp)</a>
+                            <a href={`tel:${content?.acf?.phons?.phon_f}`}>{content?.acf?.phons?.phon_f}</a>
+                            <a href={`tel:${content?.acf?.phons?.phon_s}`}>{content?.acf?.phons?.phon_s}</a>
+
+                            <div className="contactUs_item_messengers">
+
+                                {content?.acf?.messagers_link?.map((messenger, index, arr) => (
+                                    <span key={index}>
+                                        <a href={`tel:${messenger?.messagers_link_link}`}>
+                                        {messenger?.messagers_link_title}</a>
+                                        {index < arr.length - 1 && ', '}
+                                    </span>
+
+
+                                )) || null}
+                            </div>
                         </div>
 
                         <div className="contactUs_item mail">
                             <p className='mail_copy' data-mail={email} onClick={handleCopy}>
-                                {email}
+                            {email}
                                 <span className={`copyed ${isCopied ? 'active' : ''}`}>Почта скопирована</span>
                             </p>
                         </div>

@@ -1,6 +1,12 @@
 @use '../assets/scss/_variables';
 
 .about {
+  margin-top: 0;
+  padding-top: 100px;
+  @media (max-width: 767px) {
+    padding-top: 80px;
+  }
+
   &_container {
     display: flex;
     gap: 50px;

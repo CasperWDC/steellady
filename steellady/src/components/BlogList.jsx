@@ -74,11 +74,9 @@ function BlogList({posts, categories}) {
                                     IconComponent={CustomArrow}
                                 >
                                     <MenuItem value={'all'}>Все статьи</MenuItem>
-                                    {categories.filter(category => category?.count >= 1).map((category, index) => {
-                                        return (
+                                    {categories.filter(category => category?.count >= 1).map((category, index) => (
                                             <MenuItem key={index} value={category?.slug}>{category?.name}</MenuItem>
-                                        )
-                                    })}
+                                    )) || null}
                                 </Select>
                             </div>
                         ) : (

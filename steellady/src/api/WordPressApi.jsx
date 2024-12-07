@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API_BASE_URL = "http://localhost:8221/api/wp-json/wp/v2";
-const LOCAL_JSON_URL = "/full_data.json";
+const LOCAL_JSON_URL = "/api/wp-content/uploads/full_data.json";
 
 class WordPressApi {
     constructor(baseUrl = API_BASE_URL) {

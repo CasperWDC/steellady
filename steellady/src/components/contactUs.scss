@@ -55,6 +55,17 @@
       font-size: 16px;
     }
 
+    &_messengers {
+      display: flex;
+      gap: 5px;
+      span {
+        display: flex;
+      }
+      a {
+        text-decoration: underline;
+      }
+    }
+
     &.schedule {
       background: url("../assets/img/icons/schedule.png") no-repeat left;
       background-size: 50px;

@@ -20,8 +20,7 @@ function Faq ({ content }) {
                 <h2 className="psuedo_center">{content?.acf?.faq_title}</h2>
 
                 <div className='faqSection_container'>
-                    {content?.acf?.add_faq.map((faq, index) => {
-                        return (
+                    {content?.acf?.add_faq.map((faq, index) => (
                             <div key={index} className={`faqSection_item ${activeIndex === index ? "active" : ""}`} itemType="https://schema.org/Question">
                                 <div className="faqSection_question" itemProp="name" onClick={() => handleQuestionClick(index)}>
                                     {faq?.faq_q}
@@ -30,8 +29,7 @@ function Faq ({ content }) {
                                     {faq?.faq_a}
                                 </div>
                             </div>
-                        )
-                    })}
+                    )) || null}
                 </div>
 
             </div>

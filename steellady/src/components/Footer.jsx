@@ -27,11 +27,9 @@ function Footer ({ info }) {
                             Меню
                         </div>
                         <div className='nav'>
-                            {info?.acf?.main_menu.map((menu, index) => {
-                                return (
+                            {info?.acf?.main_menu.map((menu, index) => (
                                     <a key={index} href={menu?.link_m}>{menu?.menu_title}</a>
-                                )
-                            })}
+                            )) || null}
                         </div>
                     </div>
                     <div className="footer_service">
@@ -40,11 +38,9 @@ function Footer ({ info }) {
                         </div>
 
                         <div className='nav'>
-                            {info?.acf?.service_menu.map((menu, index) => {
-                                return (
+                            {info?.acf?.service_menu.map((menu, index) => (
                                     <a key={index} href={menu?.s_link}>{menu?.s_menu_title}</a>
-                                )
-                            })}
+                            )) || null}
                         </div>
                     </div>
                     <div className="footer_contacts">
@@ -82,14 +78,12 @@ function Footer ({ info }) {
                         <p>Соц.сети:</p>
                         <ul className='media_links'>
                             {info?.acf?.social_links &&
-                                Object.entries(info.acf.social_links).map(([platform, link], index) => {
-                                    return (
+                                Object.entries(info.acf.social_links).map(([platform, link], index) => (
                                         <li key={index}>
                                             <a href={link} className={platform} target='_blank' rel='noopener noreferrer'>
                                             </a>
                                         </li>
-                                    );
-                                })}
+                                )) || null}
                         </ul>
                     </div>
                 </div>

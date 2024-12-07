@@ -53,12 +53,24 @@
     &_info {
       border-bottom: 1px solid #4e555f;
       padding-bottom: 15px;
+      display: flex;
+      gap: 25px;
     }
 
     &_data {
       font-weight: 400;
       font-size: 14px;
-      line-height: 100%;
+      line-height: 130%;
+      letter-spacing: 0.03em;
+      color: variables.$textColorAcсent;
+      padding-right: 25px;
+      border-right: 1px solid variables.$textColorAcсent;
+    }
+
+    &_category {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 130%;
       letter-spacing: 0.03em;
       color: variables.$textColorAcсent;
     }

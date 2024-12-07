@@ -35,8 +35,7 @@ function Reviews ({ content }) {
                             }}
                     >
 
-                        {content?.acf?.reviews.map((review, index) => {
-                            return (
+                        {content?.acf?.reviews.map((review, index) => (
                                 <SplideSlide className='review' key={index}>
                                     <div className="review_header">
                                         <span style={{background: `url(${review?.image})`}}></span>
@@ -49,8 +48,7 @@ function Reviews ({ content }) {
                                         {review?.review}
                                     </div>
                                 </SplideSlide>
-                            )
-                        })}
+                        )) || null}
 
                     </Splide>
                 </div>

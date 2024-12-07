@@ -14,8 +14,7 @@ function Services({ content }) {
             <div className="container border_top">
                 <h2 className='psuedo_left'>{content?.acf?.s_title}</h2>
                 <div className="services_container">
-                    {content?.acf?.services.map((service, index) => {
-                        return (
+                    {content?.acf?.services.map((service, index) => (
                             <a key={index} href={service?.s_page_link} className="services_item">
                                 <div className="services_title">
                                     <img src={service?.s_icon} alt=""/>
@@ -25,8 +24,7 @@ function Services({ content }) {
                                     {service?.s_text}
                                 </p>
                             </a>
-                        )
-                    })}
+                    )) || null }
                 </div>
             </div>
         </section>

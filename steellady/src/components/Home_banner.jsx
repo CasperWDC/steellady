@@ -31,7 +31,7 @@ function Home_banner({ content }) {
                         </a>
 
                         <div className="home_banner_adress">
-                            <a href='https://yandex.ru/maps/-/CDxF7Em2' target="_blank" id='head_adress_mob'>
+                            <a href={content?.acf?.main_contacts?.h_map_link} target="_blank" id='head_adress_mob'>
                                 <span>{content?.acf?.main_contacts?.h_adress_1}</span>
                                 <span>{content?.acf?.main_contacts?.h_adress_2}</span>
                             </a>

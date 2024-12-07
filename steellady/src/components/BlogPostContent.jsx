@@ -31,11 +31,9 @@ function BlogPostContent({post}) {
                         <div className="post_page_post_info">
                             <p className="post_page_post_date">{post?.modified}</p>
                             <div className="post_page_post_category">
-                                {post?.categories.map((category, index) => {
-                                    return (
+                                {post?.categories.map((category, index) => (
                                         <span>{category?.name}</span>
-                                    )
-                                })}
+                                )) || null}
                             </div>
                         </div>
 

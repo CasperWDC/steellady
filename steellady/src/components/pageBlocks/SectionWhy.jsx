@@ -13,13 +13,11 @@ function SectionWhy ({ content }) {
                 <h2 className="psuedo_center">{content?.acf?.why_title}</h2>
 
                 <div className='whySection_container'>
-                    {content?.acf?.add_advantages.map((advantag, index) => {
-                        return (
+                    {content?.acf?.add_advantages.map((advantag, index) => (
                             <div key={index} className='whySection_item'>
                                 {advantag.advantage}
                             </div>
-                        )
-                    })}
+                    )) || null }
                 </div>
 
             </div>

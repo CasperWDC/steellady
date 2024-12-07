@@ -89,15 +89,13 @@ function BlogList({posts, categories}) {
                                     onClick={() => handleTabClick('all')}>
                                     Все статьи
                                 </button>
-                                {categories.filter(category => category?.count >= 1).map((category, index) => {
-                                    return (
+                                {categories.filter(category => category?.count >= 1).map((category, index) => (
                                         <button key={index}
                                                 className={activeTab === category?.slug ? 'active' : ''}
                                                 onClick={() => handleTabClick(category?.slug)}>
                                             {category?.name}
                                         </button>
-                                    )
-                                })}
+                                )) || null}
                             </div>
                         )}
 

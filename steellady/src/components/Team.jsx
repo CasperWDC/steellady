@@ -36,8 +36,7 @@ function Team ({ content }) {
                             } }
                     >
 
-                        {content?.acf?.team.map((team, index) => {
-                            return (
+                        {content?.acf?.team.map((team, index) => (
                                 <SplideSlide className='team_slider' key={index}>
                                     <div className="team_photo" style={{ background: `url(${team?.t_img})` }}>
                                     </div>
@@ -46,8 +45,7 @@ function Team ({ content }) {
                                         <p className='team_status'>{team?.t_position}</p>
                                     </div>
                                 </SplideSlide>
-                            )
-                        })}
+                        )) || null }
 
                     </Splide>
                 </div>

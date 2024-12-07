@@ -8,7 +8,6 @@ function Description({content}) {
         return
     }
 
-    console.log(content)
     return (
         <section className='description section_wgite' id='description'>
             <div className="container">

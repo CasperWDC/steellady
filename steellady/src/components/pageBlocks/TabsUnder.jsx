@@ -13,8 +13,7 @@ function TabsUnder({content}) {
         <section className='tabsunder' id='tabsinside'>
             <div className="container">
                 <div className="tabsunder_container">
-                    {content?.acf?.tab_under_descr.map((tab, index) => {
-                        return (
+                    {content?.acf?.tab_under_descr.map((tab, index) => (
                             <div key={index} className={`tabsunder_item_wrap`}>
                                 <div key={index}
                                      className={`tabsunder_item ${tab?.tud_list && tab.tud_list.length > 0 ? '' : 'tabs_only'}`}>
@@ -25,30 +24,25 @@ function TabsUnder({content}) {
                                 </div>
                                 {tab?.tud_list && tab.tud_list.length > 0 && (
                                     <ul className="tab_list">
-                                        {tab?.tud_list.map((list, index) => {
-                                            return (
+                                        {tab?.tud_list.map((list, index) => (
                                                 <li key={index} className='tabsunder_content'>
                                                     {list.tud_list_item}
 
                                                     {list.tud_list_2 != false && (
                                                         <ul className="tab_list_sub">
-                                                            {list.tud_list_2.map((listSub, index) => {
-                                                                return (
+                                                            {list.tud_list_2.map((listSub, index) => (
                                                                 <li key={index} className='tabsunder_content'>
                                                                     {listSub.tud_list_item_2}
                                                                 </li>
-                                                                )
-                                                            })}
+                                                            )) || null}
                                                         </ul>
                                                     )}
                                                 </li>
-                                            )
-                                        })}
+                                        )) || null}
                                     </ul>
                                 )}
                             </div>
-                        )
-                    })}
+                    )) || null}
                 </div>
             </div>
 

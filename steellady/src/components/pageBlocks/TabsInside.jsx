@@ -19,8 +19,7 @@ function TabsInside({ content }) {
         <section className='tabsinside' id='tabsinside'>
             <div className="container">
                 <div className="tabsinside_container">
-                    {content?.acf?.tab_inside_descr.map((tab, index) => {
-                        return (
+                    {content?.acf?.tab_inside_descr.map((tab, index) => (
                             <div key={index} className={`tabsinside_item ${activeIndex === index ? "active" : ""}`} onClick={() => handleTabClick(index)}>
                                 <div className="tabsinside_title">
                                     <img src={tab.tid_icon} alt=""/>
@@ -30,8 +29,7 @@ function TabsInside({ content }) {
                                     {tab.tid_txt}
                                 </p>
                             </div>
-                        )
-                    })}
+                    )) || null}
                 </div>
             </div>
         </section>

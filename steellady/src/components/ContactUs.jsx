@@ -162,8 +162,6 @@ function ContactUs({content, custom}) {
                                         {messenger?.messagers_link_title}</a>
                                         {index < arr.length - 1 && ', '}
                                     </span>
-
-
                                 )) || null}
                             </div>
                         </div>

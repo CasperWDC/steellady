@@ -46,7 +46,7 @@ function ServicePage ({ main_info }) {
 
     const ConditionalTagsCloud = () => {
         const { service_type } = pageInfo?.acf || {};
-        console.log(service_type)
+
         switch (service_type) {
             case 'cloud':
                 return <TagsCloud content={pageInfo} main={main_info}/>;

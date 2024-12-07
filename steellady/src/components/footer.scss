@@ -5,11 +5,13 @@
 
   &_img {
     height: 248px;
-    background: url("../assets/img/footer_img.jpg") no-repeat center;
+    background: url("../assets/img/footer_img1.jpg") no-repeat center;
     background-size: cover;
 
     @media (max-width: 767px) {
       height: 60px;
+      background: url("../assets/img/footer_img-m.jpg") no-repeat center;
+      background-size: cover;
     }
   }
 

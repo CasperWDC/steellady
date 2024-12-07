@@ -117,6 +117,8 @@ function Header({ info }) {
                         <a href={info?.acf?.main_contacts?.h_map_link} className="header_contact_adress" target="_blank">
                             <span>{info?.acf?.main_contacts?.h_adress_1}</span>
                             <span>{info?.acf?.main_contacts?.h_adress_2}</span>
+
+                            <span className='header_contact_adress_btn'>Построить маршрут</span>
                         </a>
 
                         <a href={`tel:${info?.acf?.main_contacts?.main_phone}`} className="header_contact_item phon" id='head_phone_desctop'>

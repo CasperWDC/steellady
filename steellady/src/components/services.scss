@@ -38,6 +38,7 @@
     padding: 25px 50px;
     transition: 0.2s ease;
     border-radius: 2px;
+    -webkit-tap-highlight-color: transparent;
 
     @media (max-width: 767px) {
       padding: 0 10px;
@@ -45,6 +46,10 @@
 
     &:hover {
       background: #2e3947;
+
+      @media (max-width: 767px) {
+        background: transparent;
+      }
     }
 
     @media (max-width: 767px) {

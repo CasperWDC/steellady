@@ -158,7 +158,7 @@ function ContactUs({content, custom}) {
 
                                 {content?.acf?.messagers_link?.map((messenger, index, arr) => (
                                     <span key={index}>
-                                        <a href={`tel:${messenger?.messagers_link_link}`}>
+                                        <a href={`${messenger?.messagers_link_link}`}>
                                         {messenger?.messagers_link_title}</a>
                                         {index < arr.length - 1 && ', '}
                                     </span>

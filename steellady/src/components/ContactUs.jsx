@@ -3,7 +3,6 @@ import "./contactUs.scss";
 import emailjs from '@emailjs/browser';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import {MenuItem} from "@mui/material";
 
 function ContactUs({content, custom}) {
 
@@ -126,6 +125,18 @@ function ContactUs({content, custom}) {
             );
 
             if (loader) loader.style.display = "none";
+
+            if (window.dataLayer) {
+                window.dataLayer.push({
+                    event: 'form_submit',
+                    form_data: {
+                        form_name: "Contact Form",
+                        form_label: "Jurist-Stalnaya.ru",
+                        value: 1
+                    }
+                });
+            }
+
             setSuccessMessage("Спасибо за запрос, мы свяжемся с Вами!");
             setForm({name: "", contact: "", message: ""});
             setErrors({});

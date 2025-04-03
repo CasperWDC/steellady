@@ -52,6 +52,12 @@ function Footer ({ info }) {
                             {info?.acf?.main_contacts?.h_adress_1}
                             {info?.acf?.main_contacts?.h_adress_2}
                         </a>
+
+                        <a href={info?.acf?.main_contacts?.h_map_link_s} className='adress_link' target="_blank">
+                            {info?.acf?.main_contacts?.h_adress_s_1}
+                            {info?.acf?.main_contacts?.h_adress_s_2}
+                        </a>
+
                         <p>
                             Телефон:
                             <a href={`tel:+${info?.acf?.main_contacts?.main_phone}`}>{info?.acf?.main_contacts?.main_phone}</a>

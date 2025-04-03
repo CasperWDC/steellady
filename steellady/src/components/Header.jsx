@@ -70,12 +70,22 @@ function Header({ info }) {
                         <img src={Logo} alt=""/>
                     </a>
 
-                    <a href={info?.acf?.main_contacts?.h_map_link} className="header_adress" target="_blank" id='head_adress'>
-                        <span>{info?.acf?.main_contacts?.h_adress_1}</span>
-                        <span>{info?.acf?.main_contacts?.h_adress_2}</span>
-                    </a>
+                    <div className="header_adress_wrap">
+                        <a href={info?.acf?.main_contacts?.h_map_link_s} className="header_adress header_adress_second" target="_blank"
+                           id='head_adress'>
+                            <span>{info?.acf?.main_contacts?.h_adress_s_1}</span>
+                            <span className="header_adress_secondLine">{info?.acf?.main_contacts?.h_adress_s_2}</span>
+                        </a>
 
-                    <Hamburger toggled={isOpen} toggle={setOpen} size={30} color="#D1B06B" />
+                        <a href={info?.acf?.main_contacts?.h_map_link} className="header_adress" target="_blank"
+                           id='head_adress'>
+                            <span>{info?.acf?.main_contacts?.h_adress_1}</span>
+                            <span className="header_adress_secondLine">{info?.acf?.main_contacts?.h_adress_2}</span>
+                        </a>
+                    </div>
+
+
+                    <Hamburger toggled={isOpen} toggle={setOpen} size={30} color="#D1B06B"/>
                 </div>
                 <div className={`header_navigation ${isOpen ? 'open' : ''}`}>
                     <div className='nav'>
@@ -85,7 +95,8 @@ function Header({ info }) {
 
                             return (
                                 menu?.submenu === false ? (
-                                    <a key={index} href={menu?.link_m} className='nav_link' onClick={handleMenuOpen}>{menu?.menu_title}</a>
+                                    <a key={index} href={menu?.link_m} className='nav_link'
+                                       onClick={handleMenuOpen}>{menu?.menu_title}</a>
                                 ) : (
                                     <div key={index} className={`submenu ${isSubmenuOpen ? "open" : ""}`}
                                          onClick={(e) => {
@@ -114,19 +125,30 @@ function Header({ info }) {
                         <img src={Logo} alt=""/>
                     </a>
                     <div className="header_contacts">
-                        <a href={info?.acf?.main_contacts?.h_map_link} className="header_contact_adress" target="_blank">
+                        <a href={info?.acf?.main_contacts?.h_map_link} className="header_contact_adress"
+                           target="_blank">
                             <span>{info?.acf?.main_contacts?.h_adress_1}</span>
                             <span>{info?.acf?.main_contacts?.h_adress_2}</span>
 
                             <span className='header_contact_adress_btn'>Построить маршрут</span>
                         </a>
 
-                        <a href={`tel:${info?.acf?.main_contacts?.main_phone}`} className="header_contact_item phon" id='head_phone_desctop'>
+                        <a href={info?.acf?.main_contacts?.h_map_link_s} className="header_contact_adress header_contact_adress_second"
+                           target="_blank">
+                            <span>{info?.acf?.main_contacts?.h_adress_s_1}</span>
+                            <span>{info?.acf?.main_contacts?.h_adress_s_2}</span>
+
+                            <span className='header_contact_adress_btn'>Построить маршрут</span>
+                        </a>
+
+                        <a href={`tel:${info?.acf?.main_contacts?.main_phone}`} className="header_contact_item phon"
+                           id='head_phone_desctop'>
                             <span className='header_contact_title'>Мобильный</span>
                             <span>{info?.acf?.main_contacts?.main_phone}</span>
                         </a>
 
-                        <a href={`https://t.me/${info?.acf?.main_contacts?.tg}`} className="header_contact_item mail" id='head_tg'>
+                        <a href={`https://t.me/${info?.acf?.main_contacts?.tg}`} className="header_contact_item mail"
+                           id='head_tg'>
                             <span className='header_contact_title'>Telegram</span>
                             <span>@{info?.acf?.main_contacts?.tg}</span>
                         </a>

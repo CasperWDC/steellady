@@ -179,7 +179,7 @@ function ContactUs({content, custom}) {
 
                         <div className="contactUs_item mail">
                             <p className='mail_copy' data-mail={email} onClick={handleCopy}>
-                            {email}
+                                {email}
                                 <span className={`copyed ${isCopied ? 'active' : ''}`}>Почта скопирована</span>
                             </p>
                         </div>
@@ -188,6 +188,13 @@ function ContactUs({content, custom}) {
                             <p>{content?.acf?.adress?.adress_f}</p>
                             <p>{content?.acf?.adress?.adress_s}</p>
                             <a href={content?.acf?.adress?.adress_map} target='_blank'>Построить маршрут</a>
+                        </div>
+
+
+                        <div className="contactUs_item adress">
+                            <p>{content?.acf?.adress_second?.adress_sf}</p>
+                            <p>{content?.acf?.adress_second?.adress_ss}</p>
+                            <a href={content?.acf?.adress_second?.adress_smap} target='_blank'>Построить маршрут</a>
                         </div>
                     </div>
 

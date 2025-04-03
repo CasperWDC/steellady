@@ -89,6 +89,25 @@
     @media (max-width: 868px) {
       display: none;
     }
+
+    &_wrap {
+     display: flex;
+      gap: 60px;
+    }
+    &_second {
+      position: relative;
+      &:after {
+        content: '';
+        width: 1px;
+        height: 90%;
+        background: #4E555F;
+        position: absolute;
+        right: -30px;
+      }
+    }
+    &_secondLine {
+      max-width: 180px;
+    }
   }
 
   &_navigation {
@@ -370,7 +389,14 @@
           color: variables.$textColorAcсent;
           margin-top: 10px;
         }
+
+        &_second {
+          border-top: 0;
+          padding-top: 10px;
+        }
       }
+
+
     }
   }
 

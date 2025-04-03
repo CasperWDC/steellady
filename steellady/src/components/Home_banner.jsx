@@ -35,6 +35,11 @@ function Home_banner({ content }) {
                                 <span>{content?.acf?.main_contacts?.h_adress_1}</span>
                                 <span>{content?.acf?.main_contacts?.h_adress_2}</span>
                             </a>
+
+                            <a href={content?.acf?.main_contacts?.h_map_link_s} target="_blank" id='head_adress_mob_second' className={"head_adress_mob_second"}>
+                                <span>{content?.acf?.main_contacts?.h_adress_s_1}</span>
+                                <span>{content?.acf?.main_contacts?.h_adress_s_2}</span>
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -27,16 +27,16 @@ function ContactUs({content, custom}) {
 
     const patterns = {
         tel: {
-            pattern: /^\+?[0-9\s-]{8,}$/,
-            keyPattern: /^[0-9+\s-]$/
+            pattern: /^\+?[0-9\s()-]{8,}$/,
+            keyPattern: /^[0-9+\s()-]$/
         },
         text: {
-            pattern: /^[a-zA-Zа-яА-Я0-9\s@\-_]+$/,
-            keyPattern: /^[a-zA-Zа-яА-Я0-9\s@\-_]$/
+            pattern: /^[a-zA-Zа-яёА-ЯЁ0-9\s@.,!?:;()"'\-_/]+$/,
+            keyPattern: /^[a-zA-Zа-яёА-ЯЁ0-9\s@.,!?:;()"'\-_/]$/
         },
         textarea: {
-            pattern: /^[a-zA-Zа-яА-Я0-9\s@\-_]+$/,
-            keyPattern: /^[a-zA-Zа-яА-Я0-9\s@\-_]$/
+            pattern: /^[\s\S]+$/,
+            keyPattern: /^[\s\S]$/
         }
     };
 
